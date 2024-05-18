@@ -99,7 +99,7 @@ const publications = [
       { label: "BibTex", url: "./resources/2023_Chaos_zhuqunxi/bib.txt" }
     ],
     image: "./resources/2023_Chaos_zhuqunxi/image.png"
-  },
+  }
   // ... 更多文章可以按照相同格式添加
 ];
 
