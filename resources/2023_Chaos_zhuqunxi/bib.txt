@@ -1,0 +1,9 @@
+@article{zhu2023leveraging,
+  title={Leveraging neural differential equations and adaptive delayed feedback to detect unstable periodic orbits based on irregularly sampled time series},
+  author={Zhu, Qunxi and Li, Xin and Lin, Wei},
+  journal={Chaos: An Interdisciplinary Journal of Nonlinear Science},
+  volume={33},
+  number={3},
+  year={2023},
+  publisher={AIP Publishing}
+}

@@ -1,0 +1,10 @@
+@article{zhang2024learning,
+  title={Learning Hamiltonian neural Koopman operator and simultaneously sustaining and discovering conservation laws},
+  author={Zhang, Jingdong and Zhu, Qunxi and Lin, Wei},
+  journal={Physical Review Research},
+  volume={6},
+  number={1},
+  pages={L012031},
+  year={2024},
+  publisher={APS}
+}

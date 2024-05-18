@@ -1,0 +1,9 @@
+@article{li2023tipping,
+  title={Tipping point detection using reservoir computing},
+  author={Li, Xin and Zhu, Qunxi and Zhao, Chengli and Qian, Xuzhe and Zhang, Xue and Duan, Xiaojun and Lin, Wei},
+  journal={Research},
+  volume={6},
+  pages={0174},
+  year={2023},
+  publisher={AAAS}
+}

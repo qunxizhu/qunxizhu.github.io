@@ -1,0 +1,6 @@
+@article{zhu2024ICML,
+  title={Switched Flow Matching: Eliminating Singularities via Switching ODEs},
+  author={Qunxi Zhu and Wei Lin},
+  journal={arXiv preprint arXiv:2102.10801},
+  year={2024}
+}
