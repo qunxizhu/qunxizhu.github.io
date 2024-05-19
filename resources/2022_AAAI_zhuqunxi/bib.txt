@@ -1,0 +1,11 @@
+@article{Zhu_Shen_Li_Lin_2022, 
+	title={Neural Piecewise-Constant Delay Differential Equations}, 
+	volume={36}, 
+	url={https://ojs.aaai.org/index.php/AAAI/article/view/20911}, 
+	DOI={10.1609/aaai.v36i8.20911}, 
+	number={8}, 
+	journal={Proceedings of the AAAI Conference on Artificial Intelligence}, 
+	author={Zhu, Qunxi and Shen, Yifei and Li, Dongsheng and Lin, Wei}, year={2022}, 
+	month={Jun.}, 
+	pages={9242-9250}
+}

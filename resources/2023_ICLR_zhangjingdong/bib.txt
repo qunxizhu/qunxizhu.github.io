@@ -1,0 +1,8 @@
+@inproceedings{
+  zhang2023sync,
+  title={{SYNC}: {Safety}-{aware} {Neural} {Control} {for} {Stabilizing} {Stochastic} {Delay}-{Differential} {Equations}},
+  author={Jingdong Zhang and Qunxi Zhu and Wei Yang and Wei Lin},
+  booktitle={The Eleventh International Conference on Learning Representations },
+  year={2023},
+  url={https://openreview.net/forum?id=_8mS2NE-HXN}
+}

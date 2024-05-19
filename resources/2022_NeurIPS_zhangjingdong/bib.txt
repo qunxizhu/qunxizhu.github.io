@@ -1,0 +1,11 @@
+@inproceedings{NEURIPS2022zhang,
+ author = {Zhang, Jingdong and Zhu, Qunxi and LIN, Wei},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {S. Koyejo and S. Mohamed and A. Agarwal and D. Belgrave and K. Cho and A. Oh},
+ pages = {9098--9110},
+ publisher = {Curran Associates, Inc.},
+ title = {Neural Stochastic Control},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2022/file/3b91129cf07287aac3de7b8adba2196f-Paper-Conference.pdf},
+ volume = {35},
+ year = {2022}
+}

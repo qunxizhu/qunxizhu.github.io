@@ -99,6 +99,42 @@ const publications = [
       { label: "BibTex", url: "./resources/2023_Chaos_zhuqunxi/bib.txt" }
     ],
     image: "./resources/2023_Chaos_zhuqunxi/image.png"
+  },
+  {
+    id: "2023_ICLR_zhangjingdong",
+    title: "SYNC: Safety-aware Neural Control for Stabilizing Stochastic Delay-Differential Equations",
+    authors: "Jingdong Zhang, Qunxi Zhu, Wei Yang, Wei Lin",
+	correspondingAuthors: ["Qunxi Zhu", "Wei Yang", "Wei Lin"], // 添加通讯作者列表
+    venue: "ICLR 2023",
+    links: [
+      { label: "PDF", url: "https://openreview.net/forum?id=_8mS2NE-HXN" },
+      { label: "BibTex", url: "./resources/2023_ICLR_zhangjingdong/bib.txt" }
+    ],
+    image: "./resources/2023_ICLR_zhangjingdong/image.png"
+  },
+  {
+    id: "2022_NeurIPS_zhangjingdong",
+    title: "Neural Stochastic Control",
+    authors: "Jingdong Zhang, Qunxi Zhu, Wei Lin",
+	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    venue: "NeurIPS 2022",
+    links: [
+      { label: "PDF", url: "https://openreview.net/forum?id=5wI7gNopMHW" },
+      { label: "BibTex", url: "./resources/2022_NeurIPS_zhangjingdong/bib.txt" }
+    ],
+    image: "./resources/2022_NeurIPS_zhangjingdong/image.png"
+  },
+  {
+    id: "2022_AAAI_zhuqunxi",
+    title: "Neural Piecewise-Constant Delay Differential Equations",
+    authors: "Qunxi Zhu, Yifei Shen, Dongsheng Li, Wei Lin",
+	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    venue: "AAAI 2022",
+    links: [
+      { label: "PDF", url: "https://ojs.aaai.org/index.php/AAAI/article/view/20911/20670" },
+      { label: "BibTex", url: "./resources/2022_AAAI_zhuqunxi/bib.txt" }
+    ],
+    image: "./resources/2022_AAAI_zhuqunxi/image.png"
   }
   // ... 更多文章可以按照相同格式添加
 ];
