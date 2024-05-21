@@ -135,6 +135,90 @@ const publications = [
       { label: "BibTex", url: "./resources/2022_AAAI_zhuqunxi/bib.txt" }
     ],
     image: "./resources/2022_AAAI_zhuqunxi/image.png"
+  },
+  {
+    id: "2021_ICLR_zhuqunxi",
+    title: "Neural Delay Differential Equations",
+    authors: "Qunxi Zhu, Yao Guo, Wei Lin",
+	correspondingAuthors: ["Qunxi Zhu", "Yao Guo", "Wei Lin"], // 添加通讯作者列表
+    venue: "ICLR 2021",
+    links: [
+      { label: "PDF", url: "https://openreview.net/forum?id=Q1jmmQz72M2" },
+      { label: "BibTex", url: "./resources/2021_ICLR_zhuqunxi/bib.txt" }
+    ],
+    image: "./resources/2021_ICLR_zhuqunxi/image.png"
+  },
+  {
+    id: "2020_TAC_zhuqunxi",
+    title: "Categorization problem on controllability of Boolean control networks",
+    authors: "Qunxi Zhu, Zuguang Gao, Yang Liu, Weihua Gui",
+	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
+    venue: "IEEE Transactions on Automatic Control 2020",
+    links: [
+      { label: "PDF", url: "https://ieeexplore.ieee.org/document/9117189" },
+      { label: "BibTex", url: "./resources/2020_TAC_zhuqunxi/bib.txt" }
+    ],
+    image: "./resources/2020_TAC_zhuqunxi/image.png"
+  },
+  {
+    id: "2019_Chaos_zhuqunxi",
+    title: "Detecting unstable periodic orbits based only on time series: When adaptive delayed feedback control meets reservoir computing",
+    authors: "Qunxi Zhu, Huanfei Ma, Wei Lin",
+	correspondingAuthors: ["Wei Lin"], // 添加通讯作者列表
+    venue: "Chaos 2023",
+    links: [
+      { label: "PDF", url: "https://aip.scitation.org/doi/10.1063/1.5120867" },
+      { label: "BibTex", url: "./resources/2019_Chaos_zhuqunxi/bib.txt" }
+    ],
+    image: "./resources/2019_Chaos_zhuqunxi/image.png"
+  },
+  {
+    id: "2019_SCL_zhuqunxi",
+    title: "Stabilizing Boolean networks by optimal event-triggered feedback control",
+    authors: "Qunxi Zhu, Wei Lin",
+	correspondingAuthors: ["Wei Lin"], // 添加通讯作者列表
+    venue: "Systems & Control Letters 2019",
+    links: [
+      { label: "PDF", url: "https://www.sciencedirect.com/science/article/pii/S0167691119300313" },
+      { label: "BibTex", url: "./resources/2019_SCL_zhuqunxi/bib.txt" }
+    ],
+    image: "./resources/2019_SCL_zhuqunxi/image.png"
+  },
+  {
+    id: "2019_TAC_zhuqunxi",
+    title: "Further results on the controllability of Boolean control networks",
+    authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
+	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
+    venue: "IEEE Transactions on Automatic Control 2019",
+    links: [
+      { label: "PDF", url: "https://ieeexplore.ieee.org/document/8350282" },
+      { label: "BibTex", url: "./resources/2019_TAC_zhuqunxi/bib.txt" }
+    ],
+    image: "./resources/2019_TAC_zhuqunxi/image.png"
+  },
+  {
+    id: "2018_SICON_zhuqunxi",
+    title: "On the optimal control of Boolean control networks",
+    authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
+	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
+    venue: "SIAM Journal on Control and Optimization 2018",
+    links: [
+      { label: "PDF", url: "https://epubs.siam.org/doi/abs/10.1137/16M1070281" },
+      { label: "BibTex", url: "./resources/2018_SICON_zhuqunxi/bib.txt" }
+    ],
+    image: "./resources/2018_SICON_zhuqunxi/image.png"
+  },
+  {
+    id: "2018_SCIS_zhuqunxi",
+    title: "Observability of Boolean control networks",
+    authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
+	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
+    venue: "Science China Information Sciences 2018",
+    links: [
+      { label: "PDF", url: "http://engine.scichina.com/publisher/scp/journal/SCIS/doi/10.1007/s11432-017-9135-4" },
+      { label: "BibTex", url: "./resources/2018_SCIS_zhuqunxi/bib.txt" }
+    ],
+    image: "./resources/2018_SCIS_zhuqunxi/image.png"
   }
   // ... 更多文章可以按照相同格式添加
 ];

@@ -1,0 +1,10 @@
+@article{zhu2018further,
+  title={Further results on the controllability of Boolean control networks},
+  author={Zhu, Qunxi and Liu, Yang and Lu, Jianquan and Cao, Jinde},
+  journal={IEEE Transactions on Automatic Control},
+  volume={64},
+  number={1},
+  pages={440--442},
+  year={2018},
+  publisher={IEEE}
+}

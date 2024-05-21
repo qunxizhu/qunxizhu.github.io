@@ -1,0 +1,9 @@
+@article{zhu2019stabilizing,
+  title={Stabilizing Boolean networks by optimal event-triggered feedback control},
+  author={Zhu, Qunxi and Lin, Wei},
+  journal={Systems \& Control Letters},
+  volume={126},
+  pages={40--47},
+  year={2019},
+  publisher={Elsevier}
+}

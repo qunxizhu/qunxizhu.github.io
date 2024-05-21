@@ -1,0 +1,9 @@
+@inproceedings{ZhuGL21,
+  author={Qunxi Zhu and Yao Guo and Wei Lin},
+  title={Neural Delay Differential Equations},
+  year={2021},
+  cdate={1609459200000},
+  url={https://openreview.net/forum?id=Q1jmmQz72M2},
+  booktitle={ICLR},
+  crossref={conf/iclr/2021},
+}

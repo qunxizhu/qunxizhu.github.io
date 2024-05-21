@@ -1,0 +1,10 @@
+@article{zhu2020categorization,
+  title={Categorization problem on controllability of Boolean control networks},
+  author={Zhu, Qunxi and Gao, Zuguang and Liu, Yang and Gui, Weihua},
+  journal={IEEE Transactions on Automatic Control},
+  volume={66},
+  number={5},
+  pages={2297--2303},
+  year={2020},
+  publisher={IEEE}
+}

@@ -1,0 +1,10 @@
+@article{zhu2018optimal,
+  title={On the optimal control of Boolean control networks},
+  author={Zhu, Qunxi and Liu, Yang and Lu, Jianquan and Cao, Jinde},
+  journal={SIAM Journal on Control and Optimization},
+  volume={56},
+  number={2},
+  pages={1321--1341},
+  year={2018},
+  publisher={SIAM}
+}

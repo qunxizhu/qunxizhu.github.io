@@ -1,0 +1,9 @@
+@article{zhu2019detecting,
+  title={Detecting unstable periodic orbits based only on time series: When adaptive delayed feedback control meets reservoir computing},
+  author={Zhu, Qunxi and Ma, Huanfei and Lin, Wei},
+  journal={Chaos},
+  volume={29},
+  number={9},
+  year={2019},
+  publisher={AIP Publishing}
+}
