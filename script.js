@@ -61,7 +61,7 @@ const publications = [
     authors: "Xin Li, Qunxi Zhu, Chengli Zhao, Xiaojun Duan, Bolin Zhao, Xue Zhang, Huanfei Ma, Jie Sun, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Chengli Zhao", "Wei Lin"], // 添加通讯作者列表
     venue: "Nature Communications 2024",
-	highlight: 'Featured article in  “AI and machine learning” and “Applied physics and mathematics”',
+	highlight: 'Featured article in  “AI and machine learning” and “Applied physics and mathematics”.',
     links: [
       { label: "PDF", url: "https://www.nature.com/articles/s41467-024-46852-1" },
       { label: "BibTex", url: "./resources/2024_NC_lixin/bib.txt" },
@@ -75,7 +75,7 @@ const publications = [
     authors: "Jingdong Zhang, Qunxi Zhu, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
     venue: "Physical Review Research 2024",
-	highlight: 'A mathematics and physics-inspired machine learning framework for reconstructing Hamiltonian systems from noisy/partially observed data',
+	highlight: 'A mathematics and physics-inspired machine learning framework for reconstructing Hamiltonian systems from noisy/partially observed data.',
     links: [
       { label: "PDF", url: "https://link.aps.org/doi/10.1103/PhysRevResearch.6.L012031" },
       { label: "BibTex", url: "./resources/2024_PRR_zhangjingdong/bib.txt" },
@@ -89,7 +89,7 @@ const publications = [
     authors: "Xin Li, Qunxi Zhu, Chengli Zhao, Xuzhe Qian, Xue Zhang, Xiaojun Duan, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Chengli Zhao"], // 添加通讯作者列表
     venue: "Research 2023",
-	highlight: 'A tipping point detection method using the dynamical representation based on reservoir computing',
+	highlight: 'A tipping point detection method using the dynamical representation based on reservoir computing.',
     links: [
       { label: "PDF", url: "https://doi.org/10.34133/research.0174" },
       { label: "BibTex", url: "./resources/2023_Research_lixin/bib.txt" }
@@ -102,7 +102,7 @@ const publications = [
     authors: "Qunxi Zhu, Xin Li, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
     venue: "Chaos 2023",
-	highlight: 'Editor’s Pick',
+	highlight: 'Editor’s Pick.',
     links: [
       { label: "PDF", url: "https://doi.org/10.1063/5.0143839" },
       { label: "BibTex", url: "./resources/2023_Chaos_zhuqunxi/bib.txt" }
@@ -115,7 +115,7 @@ const publications = [
     authors: "Jingdong Zhang, Qunxi Zhu, Wei Yang, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Wei Yang", "Wei Lin"], // 添加通讯作者列表
     venue: "ICLR 2023",
-	highlight: '',
+	highlight: 'A new class of neural control polices for stabilizing stochastic delay-differential equations with safety guarantee.',
     links: [
       { label: "PDF", url: "https://openreview.net/forum?id=_8mS2NE-HXN" },
       { label: "BibTex", url: "./resources/2023_ICLR_zhangjingdong/bib.txt" }
@@ -128,7 +128,7 @@ const publications = [
     authors: "Jingdong Zhang, Qunxi Zhu, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
     venue: "NeurIPS 2022",
-	highlight: '',
+	highlight: 'Two novel frameworks of neural stochastic control to stabilize ODEs and SDEs.',
     links: [
       { label: "PDF", url: "https://openreview.net/forum?id=5wI7gNopMHW" },
       { label: "BibTex", url: "./resources/2022_NeurIPS_zhangjingdong/bib.txt" }
@@ -141,7 +141,7 @@ const publications = [
     authors: "Qunxi Zhu, Yifei Shen, Dongsheng Li, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
     venue: "AAAI 2022",
-	highlight: '',
+	highlight: 'Multiple piecewise constant delays introduced to improve representational capability.',
     links: [
       { label: "PDF", url: "https://ojs.aaai.org/index.php/AAAI/article/view/20911/20670" },
       { label: "BibTex", url: "./resources/2022_AAAI_zhuqunxi/bib.txt" }
@@ -154,7 +154,7 @@ const publications = [
     authors: "Qunxi Zhu, Yao Guo, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Yao Guo", "Wei Lin"], // 添加通讯作者列表
     venue: "ICLR 2021",
-	highlight: '',
+	highlight: 'Overcome the limited representational capability of Neural ODEs.',
     links: [
       { label: "PDF", url: "https://openreview.net/forum?id=Q1jmmQz72M2" },
       { label: "BibTex", url: "./resources/2021_ICLR_zhuqunxi/bib.txt" }
