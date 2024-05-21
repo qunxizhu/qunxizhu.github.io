@@ -22,6 +22,7 @@ const publications = [
     authors: "Qunxi Zhu, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu"], // 添加通讯作者列表
     venue: "ICML 2024",
+	highlight: 'A versatile continuous-time generative model, SFM, that eliminates singularities encountered in the FM via switching the candidate ODEs.',
     links: [
       { label: "PDF", url: "https://arxiv.org/abs/2102.10801" },
       { label: "BibTex", url: "./resources/2024_ICML_zhuqunxi/bib.txt" }
@@ -34,6 +35,7 @@ const publications = [
     authors: "Jingdong Zhang, Luan Yang, Qunxi Zhu, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
     venue: "ICML 2024",
+	highlight: 'A Fast learning stabilization controller with both rigorous exponential stability and safety guarantees.',
     links: [
       { label: "PDF", url: "https://arxiv.org/abs/2102.10801" },
       { label: "BibTex", url: "./resources/2024_ICML_zhangjingdong/bib.txt" }
@@ -46,6 +48,7 @@ const publications = [
     authors: "Xin Li, Jingdong Zhang, Qunxi Zhu, Chengli Zhao, Xue Zhang, Xiaojun Duan, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Chengli Zhao"], // 添加通讯作者列表
     venue: "ICML 2024",
+	highlight: 'A simulation-free framework, Fourier NODEs, that effectively trains NODEs.',
     links: [
       { label: "PDF", url: "https://arxiv.org/abs/2102.10801" },
       { label: "BibTex", url: "./resources/2024_ICML_lixin/bib.txt" }
@@ -58,9 +61,11 @@ const publications = [
     authors: "Xin Li, Qunxi Zhu, Chengli Zhao, Xiaojun Duan, Bolin Zhao, Xue Zhang, Huanfei Ma, Jie Sun, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Chengli Zhao", "Wei Lin"], // 添加通讯作者列表
     venue: "Nature Communications 2024",
+	highlight: 'Featured article in  “AI and machine learning” and “Applied physics and mathematics”',
     links: [
       { label: "PDF", url: "https://www.nature.com/articles/s41467-024-46852-1" },
-      { label: "BibTex", url: "./resources/2024_NC_lixin/bib.txt" }
+      { label: "BibTex", url: "./resources/2024_NC_lixin/bib.txt" },
+      { label: "techxplore", url: "https://techxplore.com/news/2024-03-lightweight-machine-method-scalable-inference.html" }
     ],
     image: "./resources/2024_NC_lixin/image.png"
   },
@@ -70,9 +75,11 @@ const publications = [
     authors: "Jingdong Zhang, Qunxi Zhu, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
     venue: "Physical Review Research 2024",
+	highlight: 'A mathematics and physics-inspired machine learning framework for reconstructing Hamiltonian systems from noisy/partially observed data',
     links: [
       { label: "PDF", url: "https://link.aps.org/doi/10.1103/PhysRevResearch.6.L012031" },
-      { label: "BibTex", url: "./resources/2024_PRR_zhangjingdong/bib.txt" }
+      { label: "BibTex", url: "./resources/2024_PRR_zhangjingdong/bib.txt" },
+      { label: "phys.org", url: "https://phys.org/news/2024-02-machine-predictor-capability-intricate-physical.html" }
     ],
     image: "./resources/2024_PRR_zhangjingdong/image.png"
   },
@@ -82,6 +89,7 @@ const publications = [
     authors: "Xin Li, Qunxi Zhu, Chengli Zhao, Xuzhe Qian, Xue Zhang, Xiaojun Duan, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Chengli Zhao"], // 添加通讯作者列表
     venue: "Research 2023",
+	highlight: 'A tipping point detection method using the dynamical representation based on reservoir computing',
     links: [
       { label: "PDF", url: "https://doi.org/10.34133/research.0174" },
       { label: "BibTex", url: "./resources/2023_Research_lixin/bib.txt" }
@@ -93,7 +101,8 @@ const publications = [
     title: "Leveraging neural differential equations and adaptive delayed feedback to detect unstable periodic orbits based on irregularly-sampled time series",
     authors: "Qunxi Zhu, Xin Li, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
-    venue: "Chaos 2023 (Editor’s Pick)",
+    venue: "Chaos 2023",
+	highlight: 'Editor’s Pick',
     links: [
       { label: "PDF", url: "https://doi.org/10.1063/5.0143839" },
       { label: "BibTex", url: "./resources/2023_Chaos_zhuqunxi/bib.txt" }
@@ -106,6 +115,7 @@ const publications = [
     authors: "Jingdong Zhang, Qunxi Zhu, Wei Yang, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Wei Yang", "Wei Lin"], // 添加通讯作者列表
     venue: "ICLR 2023",
+	highlight: '',
     links: [
       { label: "PDF", url: "https://openreview.net/forum?id=_8mS2NE-HXN" },
       { label: "BibTex", url: "./resources/2023_ICLR_zhangjingdong/bib.txt" }
@@ -118,6 +128,7 @@ const publications = [
     authors: "Jingdong Zhang, Qunxi Zhu, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
     venue: "NeurIPS 2022",
+	highlight: '',
     links: [
       { label: "PDF", url: "https://openreview.net/forum?id=5wI7gNopMHW" },
       { label: "BibTex", url: "./resources/2022_NeurIPS_zhangjingdong/bib.txt" }
@@ -130,6 +141,7 @@ const publications = [
     authors: "Qunxi Zhu, Yifei Shen, Dongsheng Li, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
     venue: "AAAI 2022",
+	highlight: '',
     links: [
       { label: "PDF", url: "https://ojs.aaai.org/index.php/AAAI/article/view/20911/20670" },
       { label: "BibTex", url: "./resources/2022_AAAI_zhuqunxi/bib.txt" }
@@ -142,6 +154,7 @@ const publications = [
     authors: "Qunxi Zhu, Yao Guo, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Yao Guo", "Wei Lin"], // 添加通讯作者列表
     venue: "ICLR 2021",
+	highlight: '',
     links: [
       { label: "PDF", url: "https://openreview.net/forum?id=Q1jmmQz72M2" },
       { label: "BibTex", url: "./resources/2021_ICLR_zhuqunxi/bib.txt" }
@@ -154,6 +167,7 @@ const publications = [
     authors: "Qunxi Zhu, Zuguang Gao, Yang Liu, Weihua Gui",
 	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
     venue: "IEEE Transactions on Automatic Control 2020",
+	highlight: '',
     links: [
       { label: "PDF", url: "https://ieeexplore.ieee.org/document/9117189" },
       { label: "BibTex", url: "./resources/2020_TAC_zhuqunxi/bib.txt" }
@@ -166,6 +180,7 @@ const publications = [
     authors: "Qunxi Zhu, Huanfei Ma, Wei Lin",
 	correspondingAuthors: ["Wei Lin"], // 添加通讯作者列表
     venue: "Chaos 2023",
+	highlight: '',
     links: [
       { label: "PDF", url: "https://aip.scitation.org/doi/10.1063/1.5120867" },
       { label: "BibTex", url: "./resources/2019_Chaos_zhuqunxi/bib.txt" }
@@ -178,6 +193,7 @@ const publications = [
     authors: "Qunxi Zhu, Wei Lin",
 	correspondingAuthors: ["Wei Lin"], // 添加通讯作者列表
     venue: "Systems & Control Letters 2019",
+	highlight: '',
     links: [
       { label: "PDF", url: "https://www.sciencedirect.com/science/article/pii/S0167691119300313" },
       { label: "BibTex", url: "./resources/2019_SCL_zhuqunxi/bib.txt" }
@@ -190,6 +206,7 @@ const publications = [
     authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
 	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
     venue: "IEEE Transactions on Automatic Control 2019",
+	highlight: '',
     links: [
       { label: "PDF", url: "https://ieeexplore.ieee.org/document/8350282" },
       { label: "BibTex", url: "./resources/2019_TAC_zhuqunxi/bib.txt" }
@@ -202,6 +219,7 @@ const publications = [
     authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
 	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
     venue: "SIAM Journal on Control and Optimization 2018",
+	highlight: '',
     links: [
       { label: "PDF", url: "https://epubs.siam.org/doi/abs/10.1137/16M1070281" },
       { label: "BibTex", url: "./resources/2018_SICON_zhuqunxi/bib.txt" }
@@ -214,6 +232,7 @@ const publications = [
     authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
 	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
     venue: "Science China Information Sciences 2018",
+	highlight: '',
     links: [
       { label: "PDF", url: "http://engine.scichina.com/publisher/scp/journal/SCIS/doi/10.1007/s11432-017-9135-4" },
       { label: "BibTex", url: "./resources/2018_SCIS_zhuqunxi/bib.txt" }
@@ -273,6 +292,11 @@ function renderPublications() {
       infoDiv.appendChild(anchor);
       infoDiv.appendChild(document.createTextNode(" ] "));
     });
+	
+	const highlight = document.createElement('div');
+    highlight.classList.add('highlight');
+    highlight.textContent = pub.highlight;
+    infoDiv.appendChild(highlight);
 
     pubDiv.appendChild(infoDiv);
     publicationsContainer.appendChild(pubDiv);
@@ -345,9 +369,9 @@ function renderExperiences() {
   experiences.forEach(exp => {
     const listItem = document.createElement('li');
     if (exp.details) {
-      listItem.innerHTML = `${exp.date}, ${exp.title}, ${exp.institution}, ${exp.details}`;
+      listItem.innerHTML = `${exp.date}, ${exp.title}, ${exp.institution}, ${exp.details}.`;
     } else {
-      listItem.innerHTML = `${exp.date}, ${exp.title}, ${exp.institution}`;
+      listItem.innerHTML = `${exp.date}, ${exp.title}, ${exp.institution}.`;
     }
     
     list.appendChild(listItem);
@@ -363,3 +387,103 @@ function renderExperiences() {
 document.addEventListener('DOMContentLoaded', () => {
   renderExperiences();
 });
+
+
+
+
+
+
+
+// Define the awards and honors items
+const awards_and_honors = [
+  {
+    date: '2021',
+    details: 'Super postdoctoral fellow in Shanghai, FDU'
+  },
+  {
+    date: '2021',
+    details: 'Outstanding graduates in Shanghai, FDU'
+  },
+  {
+    date: '2020',
+    details: 'National Graduate (Ph.D.) Scholarship, FDU'
+  },
+  {
+    date: '2019',
+	award: 'Final rank: 2st',
+    details: '2019 Zhejiang Lab Cup Global AI Competition: Opinion Mining For E-Commerce Reviews (awarded 100,000 rmb)'
+  },
+  {
+    date: '2019',
+    award: 'Final rank: 1st',
+    details: 'The 5th Baidu & XJTU Big Data Contest The First IKCEST “The Belt and Road” International Big Data Contest (awarded 50,000 rmb)'
+  },
+  {
+    date: '2018',
+    details: 'National Graduate (Ph.D.) Scholarship, FDU'
+  },
+  {
+    date: '2017',
+    details: 'National Graduate Scholarship, FDU'
+  },
+  {
+    date: '2016',
+	award: 'Second prize',
+    details: 'National Graduate Mathematical Modeling Contest'
+  },
+  {
+    date: '2015',
+	award: 'Silver Medal',
+    details: 'ACM-ICPC Asia Beijing Regional Contest'
+  },
+  {
+    date: '2014 and 2015',
+	award: 'Gold Medal',
+    details: 'Zhejiang Provincial University Programming Contest'
+  },
+  {
+    date: '2014',
+	award: 'Second prize',
+    details: 'National Undergraduate Mathematical Modeling Contest'
+  },
+  {
+    date: '2014',
+    details: 'National Undergraduate Scholarship, ZJNU'
+  }
+];
+
+function renderAwards_and_Honors() {
+  // Find the experiences div
+  const awards_and_honorsDiv = document.getElementById('awards_and_honors');
+  
+  // Create the paper div
+  const paperDiv = document.createElement('div');
+  paperDiv.className = 'paper';
+
+  // Create the ul element
+  const list = document.createElement('ul');
+  list.classList.add('paper-text'); // 为文本部分添加类名
+  
+  // Append awards_and_honors items to the list
+  awards_and_honors.forEach(exp => {
+    const listItem = document.createElement('li');
+    if (exp.award) {
+      listItem.innerHTML = `<b>${exp.award}</b>, ${exp.details}, ${exp.date}.`;
+    } else {
+      listItem.innerHTML = `${exp.details}, ${exp.date}.`;
+    }
+    
+    list.appendChild(listItem);
+  });
+
+  // Append the list to the paper div
+  paperDiv.appendChild(list);
+
+  // Append the paper div to the experiences div
+  awards_and_honorsDiv.appendChild(paperDiv);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderAwards_and_Honors();
+});
+
