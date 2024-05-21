@@ -391,7 +391,7 @@ const awards_and_honors = [
   },
   {
     date: '2019',
-	award: 'Final rank: 1st',
+    award: 'Final rank: 1st',
     details: 'The 5th Baidu & XJTU Big Data Contest The First IKCEST “The Belt and Road” International Big Data Contest (awarded 50,000 rmb)'
   },
   {
