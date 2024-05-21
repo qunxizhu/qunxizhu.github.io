@@ -363,3 +363,103 @@ function renderExperiences() {
 document.addEventListener('DOMContentLoaded', () => {
   renderExperiences();
 });
+
+
+
+
+
+
+
+// Define the awards and honors items
+const awards_and_honors = [
+  {
+    date: '2021',
+    details: 'Super postdoctoral fellow in Shanghai, FDU'
+  },
+  {
+    date: '2021',
+    details: 'Outstanding graduates in Shanghai, FDU'
+  },
+  {
+    date: '2020',
+    details: 'National Graduate (Ph.D.) Scholarship, FDU'
+  },
+  {
+    date: '2019',
+	award: 'Final rank: 2st',
+    details: '2019 Zhejiang Lab Cup Global AI Competition: Opinion Mining For E-Commerce Reviews (awarded 100,000 rmb)'
+  },
+  {
+    date: '2019',
+	award: 'Final rank: 1st',
+    details: 'The 5th Baidu & XJTU Big Data Contest The First IKCEST “The Belt and Road” International Big Data Contest (awarded 50,000 rmb)'
+  },
+  {
+    date: '2018',
+    details: 'National Graduate (Ph.D.) Scholarship, FDU'
+  },
+  {
+    date: '2017',
+    details: 'National Graduate Scholarship, FDU'
+  },
+  {
+    date: '2016',
+	award: 'Second prize',
+    details: 'National Graduate Mathematical Modeling Contest'
+  },
+  {
+    date: '2015',
+	award: 'Silver Medal',
+    details: 'ACM-ICPC Asia Beijing Regional Contest'
+  },
+  {
+    date: '2014 and 2015',
+	award: 'Gold Medal',
+    details: 'Zhejiang Provincial University Programming Contest'
+  },
+  {
+    date: '2014',
+	award: 'Second prize',
+    details: 'National Undergraduate Mathematical Modeling Contest'
+  },
+  {
+    date: '2014',
+    details: 'National Undergraduate Scholarship, ZJNU'
+  }
+];
+
+function renderAwards_and_Honors() {
+  // Find the experiences div
+  const awards_and_honorsDiv = document.getElementById('awards_and_honors');
+  
+  // Create the paper div
+  const paperDiv = document.createElement('div');
+  paperDiv.className = 'paper';
+
+  // Create the ul element
+  const list = document.createElement('ul');
+  list.classList.add('paper-text'); // 为文本部分添加类名
+  
+  // Append awards_and_honors items to the list
+  awards_and_honors.forEach(exp => {
+    const listItem = document.createElement('li');
+    if (exp.award) {
+      listItem.innerHTML = `<b>${exp.award}</b>, ${exp.details}, ${exp.date}.`;
+    } else {
+      listItem.innerHTML = `${exp.details}, ${exp.date}.`;
+    }
+    
+    list.appendChild(listItem);
+  });
+
+  // Append the list to the paper div
+  paperDiv.appendChild(list);
+
+  // Append the paper div to the experiences div
+  awards_and_honorsDiv.appendChild(paperDiv);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderAwards_and_Honors();
+});
+
