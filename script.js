@@ -345,9 +345,9 @@ function renderExperiences() {
   experiences.forEach(exp => {
     const listItem = document.createElement('li');
     if (exp.details) {
-      listItem.innerHTML = `${exp.date}, ${exp.title}, ${exp.institution}, ${exp.details}`;
+      listItem.innerHTML = `${exp.date}, ${exp.title}, ${exp.institution}, ${exp.details}.`;
     } else {
-      listItem.innerHTML = `${exp.date}, ${exp.title}, ${exp.institution}`;
+      listItem.innerHTML = `${exp.date}, ${exp.title}, ${exp.institution}.`;
     }
     
     list.appendChild(listItem);
