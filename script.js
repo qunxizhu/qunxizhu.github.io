@@ -238,7 +238,9 @@ function renderPublications() {
     img.title = pub.title;
     pubDiv.appendChild(img);
 
-    const infoDiv = document.createElement('div');
+	const infoDiv = document.createElement('div');
+    infoDiv.classList.add('paper-text'); // 为文本部分添加类名
+	
     const titleStrong = document.createElement('strong');
     titleStrong.textContent = pub.title;
     infoDiv.appendChild(titleStrong);

@@ -191,10 +191,17 @@ img.paper {
   /*margin-bottom: 0.5em; /* 设置底部外边距 */
   /*margin-right: 1em; /* 设置右侧外边距 */
   margin: 0 1em 0 0; /* 图片上右下左间距 */
-  float: left; /* 设置浮动 */
-  width: 200px; /* 设置宽度 */
+  /*float: left; /* 设置浮动 */
+  /*width: 200px; /* 设置宽度 */
+  flex: 0 0 25%; /* 设置图片部分占25%宽度，不允许缩小 */
   border: none; /* 移除边框 */
   padding: 0; /* 移除内边距 */
+}
+
+/* 论文文本部分 */
+.paper-text {
+  flex-grow: 0; /* 允许文本部分扩展 */
+  min-width: 0; /* 防止文本部分过宽 */
 }
 
 /* 设置作者列表和文章标题之间的间距 */
