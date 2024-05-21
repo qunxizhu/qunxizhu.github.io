@@ -288,3 +288,78 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log("Document loaded. Rendering publications...");
   renderPublications();
 });
+
+
+
+
+
+
+
+
+// Define the experience items
+const experiences = [
+  {
+    date: '2021.6 – Present',
+    title: 'Postdoctoral Research Fellow',
+    institution: 'Research Institute of Intelligent Complex Systems, Fudan University, China',
+    details: 'work with <a href="https://faculty.fudan.edu.cn/wlin/zh_CN/zdylm/652034/list/index.htm">Wei Lin</a>'
+  },
+  {
+    date: '2020.9 – 2021.2',
+    title: 'Research Intern',
+    institution: 'Microsoft Research Asia (MSRA)',
+    details: 'hosted by <a href="http://recmind.cn/">Dongsheng Li</a>'
+  },
+  {
+    date: '2019.1 - 2019.12',
+    title: 'Visiting Student',
+    institution: 'Massachusetts General Hospital and Harvard Medical School, Harvard University, US (China Scholarship Council)',
+    details: 'hosted by <a href="https://sites.google.com/view/the-ge-lab/home">Tian Ge</a>'
+  },
+  {
+    date: '2016.9 – 2021.6',
+    title: 'Ph.D. Student',
+    institution: 'Applied Mathematics, Fudan University, China',
+    details: 'advised by <a href="https://faculty.fudan.edu.cn/wlin/zh_CN/zdylm/652034/list/index.htm">Wei Lin</a>'
+  },
+  {
+    date: '2012.9 - 2016.6',
+    title: 'B.Sc. Student',
+    institution: 'Mathematics and Applied Mathematics, Zhejiang Normal University, China'
+  }
+];
+
+function renderExperiences() {
+  // Find the experiences div
+  const experiencesDiv = document.getElementById('experiences');
+  
+  // Create the paper div
+  const paperDiv = document.createElement('div');
+  paperDiv.className = 'paper';
+
+  // Create the ul element
+  const list = document.createElement('ul');
+  list.classList.add('paper-text'); // 为文本部分添加类名
+  
+  // Append experience items to the list
+  experiences.forEach(exp => {
+    const listItem = document.createElement('li');
+    if (exp.details) {
+      listItem.innerHTML = `${exp.date}, ${exp.title}, ${exp.institution}, ${exp.details}`;
+    } else {
+      listItem.innerHTML = `${exp.date}, ${exp.title}, ${exp.institution}`;
+    }
+    
+    list.appendChild(listItem);
+  });
+
+  // Append the list to the paper div
+  paperDiv.appendChild(list);
+
+  // Append the paper div to the experiences div
+  experiencesDiv.appendChild(paperDiv);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderExperiences();
+});

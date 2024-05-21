@@ -202,6 +202,7 @@ img.paper {
 .paper-text {
   flex-grow: 0; /* 允许文本部分扩展 */
   min-width: 0; /* 防止文本部分过宽 */
+  text-align: justify; /* 设置文本两端对齐 */
 }
 
 /* 设置作者列表和文章标题之间的间距 */
