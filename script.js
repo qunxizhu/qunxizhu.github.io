@@ -167,7 +167,7 @@ const publications = [
     authors: "Qunxi Zhu, Zuguang Gao, Yang Liu, Weihua Gui",
 	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
     venue: "IEEE Transactions on Automatic Control 2020",
-	highlight: '',
+	highlight: 'An algebraic graph theoretic approach, to classify the set of reachable or unreachable time steps (finite or infinite).',
     links: [
       { label: "PDF", url: "https://ieeexplore.ieee.org/document/9117189" },
       { label: "BibTex", url: "./resources/2020_TAC_zhuqunxi/bib.txt" }
@@ -180,7 +180,7 @@ const publications = [
     authors: "Qunxi Zhu, Huanfei Ma, Wei Lin",
 	correspondingAuthors: ["Wei Lin"], // 添加通讯作者列表
     venue: "Chaos 2023",
-	highlight: '',
+	highlight: 'A data-driven and model-free method, connecting reservoir computing and adaptive delayed feedback control to detect unstable periodic orbits.',
     links: [
       { label: "PDF", url: "https://aip.scitation.org/doi/10.1063/1.5120867" },
       { label: "BibTex", url: "./resources/2019_Chaos_zhuqunxi/bib.txt" }
@@ -193,7 +193,7 @@ const publications = [
     authors: "Qunxi Zhu, Wei Lin",
 	correspondingAuthors: ["Wei Lin"], // 添加通讯作者列表
     venue: "Systems & Control Letters 2019",
-	highlight: '',
+	highlight: 'An optimal event-triggered feedback control for stabilizing Boolean networks by considering control time with control variability.',
     links: [
       { label: "PDF", url: "https://www.sciencedirect.com/science/article/pii/S0167691119300313" },
       { label: "BibTex", url: "./resources/2019_SCL_zhuqunxi/bib.txt" }
@@ -206,7 +206,7 @@ const publications = [
     authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
 	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
     venue: "IEEE Transactions on Automatic Control 2019",
-	highlight: '',
+	highlight: 'An improved graphic method for controllability analysis of Boolean control networks.',
     links: [
       { label: "PDF", url: "https://ieeexplore.ieee.org/document/8350282" },
       { label: "BibTex", url: "./resources/2019_TAC_zhuqunxi/bib.txt" }
@@ -219,7 +219,7 @@ const publications = [
     authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
 	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
     venue: "SIAM Journal on Control and Optimization 2018",
-	highlight: '',
+	highlight: 'An optimal input-state transfergraph introduced for BCNs with cost in finite/infinite time horizon.',
     links: [
       { label: "PDF", url: "https://epubs.siam.org/doi/abs/10.1137/16M1070281" },
       { label: "BibTex", url: "./resources/2018_SICON_zhuqunxi/bib.txt" }
@@ -232,7 +232,7 @@ const publications = [
     authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
 	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
     venue: "Science China Information Sciences 2018",
-	highlight: '',
+	highlight: 'Necessary and sufficient conditions for the observability of BCNs.',
     links: [
       { label: "PDF", url: "http://engine.scichina.com/publisher/scp/journal/SCIS/doi/10.1007/s11432-017-9135-4" },
       { label: "BibTex", url: "./resources/2018_SCIS_zhuqunxi/bib.txt" }
