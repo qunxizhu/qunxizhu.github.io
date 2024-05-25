@@ -24,7 +24,7 @@ const publications = [
     venue: "ICML 2024",
 	highlight: 'A versatile continuous-time generative model, SFM, that eliminates singularities encountered in the FM via switching the candidate ODEs.',
     links: [
-      { label: "PDF", url: "https://arxiv.org/abs/2102.10801" },
+      { label: "PDF", url: "https://arxiv.org/abs/2405.11605" },
       { label: "BibTex", url: "./resources/2024_ICML_zhuqunxi/bib.txt" }
     ],
     image: "./resources/2024_ICML_zhuqunxi/image.png"
@@ -37,7 +37,7 @@ const publications = [
     venue: "ICML 2024",
 	highlight: 'A Fast learning stabilization controller with both rigorous exponential stability and safety guarantees.',
     links: [
-      { label: "PDF", url: "https://arxiv.org/abs/2102.10801" },
+      { label: "PDF", url: "https://arxiv.org/abs/2405.11406" },
       { label: "BibTex", url: "./resources/2024_ICML_zhangjingdong/bib.txt" }
     ],
     image: "./resources/2024_ICML_zhangjingdong/image.png"
@@ -50,7 +50,7 @@ const publications = [
     venue: "ICML 2024",
 	highlight: 'A simulation-free framework, Fourier NODEs, that effectively trains NODEs.',
     links: [
-      { label: "PDF", url: "https://arxiv.org/abs/2102.10801" },
+      { label: "PDF", url: "https://arxiv.org/abs/2405.11542" },
       { label: "BibTex", url: "./resources/2024_ICML_lixin/bib.txt" }
     ],
     image: "./resources/2024_ICML_lixin/image.png"

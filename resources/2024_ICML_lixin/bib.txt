@@ -1,6 +1,6 @@
 @article{zhang2024ICML,
   title={FESSNC: Fast Exponentially Stable and Safe Neural Controller},
   author={Jingdong Zhang and Luan Yang and Qunxi Zhu and Wei Lin},
-  journal={arXiv preprint arXiv:2102.10801},
+  journal={arXiv preprint arXiv:2405.11542},
   year={2024}
 }
