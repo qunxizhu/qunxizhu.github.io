@@ -48,7 +48,7 @@ const publications = [
     authors: "Xin Li, Jingdong Zhang, Qunxi Zhu, Chengli Zhao, Xue Zhang, Xiaojun Duan, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Chengli Zhao"], // 添加通讯作者列表
     venue: "ICML 2024",
-	highlight: 'A simulation-free framework, Fourier NODEs, that effectively trains NODEs.',
+	highlight: 'A simulation-free framework, Fourier Neural ODEs, that effectively trains Neural ODEs.',
     links: [
       { label: "PDF", url: "https://arxiv.org/abs/2405.11542" },
       { label: "BibTex", url: "./resources/2024_ICML_lixin/bib.txt" }
@@ -179,7 +179,7 @@ const publications = [
     title: "Detecting unstable periodic orbits based only on time series: When adaptive delayed feedback control meets reservoir computing",
     authors: "Qunxi Zhu, Huanfei Ma, Wei Lin",
 	correspondingAuthors: ["Wei Lin"], // 添加通讯作者列表
-    venue: "Chaos 2023",
+    venue: "Chaos 2019",
 	highlight: 'A data-driven and model-free method, connecting reservoir computing and adaptive delayed feedback control to detect unstable periodic orbits.',
     links: [
       { label: "PDF", url: "https://aip.scitation.org/doi/10.1063/1.5120867" },
@@ -251,11 +251,33 @@ function renderPublications() {
     pubDiv.classList.add('paper');
     pubDiv.id = pub.id;
 
+    //const img = document.createElement('img');
+    //img.classList.add('paper');
+    //img.src = pub.image;
+    //img.title = pub.title;
+    //pubDiv.appendChild(img);
+	
+	// 创建包含图片和标题的容器
+    const imageContainer = document.createElement('div');
+    imageContainer.classList.add('image-container');
+
+    const venueSpan = document.createElement('div');
+    venueSpan.classList.add('badge');
+    //venueSpan.textContent = pub.venue;
+	// 使用正则表达式移除字符串末尾的年份（假设格式为 'YYYY'）
+    venueSpan.textContent = pub.venue.replace(/\s*\d{4}$/, '');
+    imageContainer.appendChild(venueSpan);  // 将期刊名称添加到图片容器的顶部
+
     const img = document.createElement('img');
     img.classList.add('paper');
     img.src = pub.image;
-    img.title = pub.title;
-    pubDiv.appendChild(img);
+    img.alt = pub.title;  // 添加 alt 属性提升无障碍性和SEO
+    imageContainer.appendChild(img);  // 将图片添加到容器
+
+    pubDiv.appendChild(imageContainer);
+	
+	
+	
 
 	const infoDiv = document.createElement('div');
     infoDiv.classList.add('paper-text'); // 为文本部分添加类名
@@ -283,6 +305,13 @@ function renderPublications() {
     }).join(', ');
     authors.innerHTML = `${authorsList}<br> in ${pub.venue}<br>`;
     infoDiv.appendChild(authors);
+	//authors.innerHTML = `${authorsList}`;
+    //infoDiv.appendChild(authors);
+
+    //const venueSpan = document.createElement('span');
+    //venueSpan.classList.add('badge');
+    //venueSpan.textContent = `<br> in ${pub.venue}<br>`;
+    //authors.appendChild(venueSpan);
 
     pub.links.forEach(link => {
       const anchor = document.createElement('a');

@@ -169,6 +169,7 @@ i {
 
 /* 论文样式 */
 .paper {
+  /*flex: 1 1 75%; /* 允许每个.paper元素占总宽度的25%，且在必要时可以缩放 */
   display: flex; /* 我们可以通过将包含这些内容的父元素设置为flex容器，并使用适当的flex属性来实现垂直居中。 */
   align-items: center; /* 垂直居中对齐 */
   clear: both; /* 清除浮动 */
@@ -186,17 +187,6 @@ i {
   padding-left: 0; /* 移除左侧内边距 */
 }
 
-/* 图片样式，去除边框并设置间距 */
-img.paper {
-  /*margin-bottom: 0.5em; /* 设置底部外边距 */
-  /*margin-right: 1em; /* 设置右侧外边距 */
-  margin: 0 1em 0 0; /* 图片上右下左间距 */
-  /*float: left; /* 设置浮动 */
-  /*width: 200px; /* 设置宽度 */
-  flex: 0 0 25%; /* 设置图片部分占25%宽度，不允许缩小 */
-  border: none; /* 移除边框 */
-  padding: 0; /* 移除内边距 */
-}
 
 /* 论文文本部分 */
 .paper-text {
@@ -275,6 +265,8 @@ code {
 .name {
   line-height: 150%; /* 设置行高 */
   font-size: 20pt; /* 设置字体大小 */
+  color: blue; /* 设置文本颜色为蓝色 */
+  font-weight: bold; /* 设置文本为加粗 */
 }
 
 
@@ -297,4 +289,39 @@ code {
 .highlight {
   color: red;
   font-weight: bold;
+}
+
+
+/* 图片样式，去除边框并设置间距 */
+img.paper {
+  /*margin-bottom: 0.5em; /* 设置底部外边距 */
+  /*margin-right: 1em; /* 设置右侧外边距 */
+  /*margin: 0 1em 0 0; /* 图片上右下左间距 */
+  /*float: left; /* 设置浮动 */
+  /*width: 200px; /* 设置宽度 */
+  /*flex: 0 0 25%; /* 设置图片部分占25%宽度，不允许缩小 */
+  width: 100%; /* 图片宽度自适应容器宽度 */
+  border: none; /* 移除边框 */
+  padding: 0; /* 移除内边距 */
+}
+
+.badge {
+    background-color: purple; /* 设置背景色为紫色 */
+    color: white; /* 设置文字颜色为白色 */
+    padding: 5px 0px; /* 设置内边距 */
+	justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+	/*text-align: center; /* 文本水平居中 */
+	/*line-height: 20px; /* 设置行高，这应根据您的具体设计调整 */
+	/*height: 20px; /* 设置高度，确保与行高一致以实现垂直居中 */
+    border-radius: 5px; /* 设置边角圆滑 */
+	display: flex; /* 使用flex布局 */
+    /*display: inline-block; /*block; /* 使标签独占一行 */ /* inline-block; 保证标签表现为行内块 */ /*margin: 2px;  添加外边距 */
+}
+
+.image-container {
+  text-align: center;  /* 文字和图片居中对齐 */
+  margin-bottom: 10px; /* 图片下方留出间距 */
+  margin: 0 1em 0 0; /* 图片上右下左间距 */
+  flex: 0 0 25%; /* 设置图片部分占25%宽度，不允许缩小 */
 }
