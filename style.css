@@ -308,7 +308,8 @@ img.paper {
 .badge {
     background-color: purple; /* 设置背景色为紫色 */
     color: white; /* 设置文字颜色为白色 */
-    padding: 5px 0px; /* 设置内边距 */
+	font-weight: bold;
+    padding: 3px 0px; /* 设置内边距 */
 	justify-content: center; /* 水平居中 */
     align-items: center; /* 垂直居中 */
 	/*text-align: center; /* 文本水平居中 */
@@ -321,7 +322,7 @@ img.paper {
 
 .image-container {
   text-align: center;  /* 文字和图片居中对齐 */
-  margin-bottom: 10px; /* 图片下方留出间距 */
+  margin-bottom: 5px; /* 图片下方留出间距 */
   margin: 0 1em 0 0; /* 图片上右下左间距 */
   flex: 0 0 25%; /* 设置图片部分占25%宽度，不允许缩小 */
 }
