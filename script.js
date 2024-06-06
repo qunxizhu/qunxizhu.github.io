@@ -219,7 +219,7 @@ const publications = [
     authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
 	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
     venue: "SIAM Journal on Control and Optimization 2018",
-	highlight: 'An optimal input-state transfergraph introduced for BCNs with cost in finite/infinite time horizon.',
+	highlight: 'An optimal input-state transfer graph introduced for BCNs with cost in finite/infinite time horizon.',
     links: [
       { label: "PDF", url: "https://epubs.siam.org/doi/abs/10.1137/16M1070281" },
       { label: "BibTex", url: "./resources/2018_SICON_zhuqunxi/bib.txt" }
