@@ -56,6 +56,19 @@ const publications = [
     image: "./resources/2024_ICML_lixin/image.png"
   },
   {
+    id: "2024_COLING_liushunyu",
+    title: "Let’s Rectify Step by Step: Improving Aspect-based Sentiment Analysis with Diffusion Models",
+    authors: "Shunyu Liu, Jie Zhou, Qunxi Zhu, Qin Chen, Qingchun Bai, Jun Xiao, Liang He",
+	correspondingAuthors: ["Jie Zhou"], // 添加通讯作者列表
+    venue: "COLING 2024",
+	highlight: 'A diffusion-based model, DiffusionABSA, tailored for aspect-based sentiment analysis (an important task in Natural Language Processing).',
+    links: [
+      { label: "PDF", url: "https://arxiv.org/abs/2402.15289" },
+      { label: "BibTex", url: "./resources/2024_COLING_liushunyu/bib.txt" }
+    ],
+    image: "./resources/2024_COLING_liushunyu/image.png"
+  },
+  {
     id: "2024_NC_lixin",
     title: "Higher-order Granger reservoir computing: Simultaneously achieving scalable complex structures inference and accurate dynamics prediction",
     authors: "Xin Li, Qunxi Zhu, Chengli Zhao, Xiaojun Duan, Bolin Zhao, Xue Zhang, Huanfei Ma, Jie Sun, Wei Lin",
@@ -84,6 +97,19 @@ const publications = [
     image: "./resources/2024_PRR_zhangjingdong/image.png"
   },
   {
+    id: "2023_IJBC_jiboyun",
+    title: "Dimension reduction of collective attention networks",
+    authors: "Boyun Ji, Qunxi Zhu, Wei Lin",
+	correspondingAuthors: ["Qunxi Zhu"], // 添加通讯作者列表
+    venue: "International Journal of Bifurcation and Chaos 2023",
+	highlight: 'Dimension reduction of a simple collective attention model for capturing the dynamics of coupled cultural products.',
+    links: [
+      { label: "PDF", url: "https://www.worldscientific.com/doi/10.1142/S0218127423501353" },
+      { label: "BibTex", url: "./resources/2023_IJBC_jiboyun/bib.txt" }
+    ],
+    image: "./resources/2023_IJBC_jiboyun/image.png"
+  },
+  {
     id: "2023_Research_lixin",
     title: "Tipping-point detection using reservoir computing",
     authors: "Xin Li, Qunxi Zhu, Chengli Zhao, Xuzhe Qian, Xue Zhang, Xiaojun Duan, Wei Lin",
@@ -95,6 +121,19 @@ const publications = [
       { label: "BibTex", url: "./resources/2023_Research_lixin/bib.txt" }
     ],
     image: "./resources/2023_Research_lixin/image.png"
+  },
+  {
+    id: "2023_ACL_xionglimao",
+    title: "A Confidence-based Partial Label Learning Model for Crowd-Annotated Named Entity Recognition",
+    authors: "Limao Xiong, Jie Zhou, Qunxi Zhu, Xiao Wang, Yuanbin Wu, Qi Zhang, Tao Gui, Xuanjing Huang, Jin Ma, Ying Shan",
+	correspondingAuthors: ["Jie Zhou"], // 添加通讯作者列表
+    venue: "ACL Findings 2023",
+	highlight: 'A Confidence-based Partial Label Learning method for crowd-annotated named entity recognition (an important task in Natural Language Processing).',
+    links: [
+      { label: "PDF", url: "https://arxiv.org/pdf/2305.12485" },
+      { label: "BibTex", url: "./resources/2023_ACL_xionglimao/bib.txt" }
+    ],
+    image: "./resources/2023_ACL_xionglimao/image.png"
   },
   {
     id: "2023_Chaos_zhuqunxi",
@@ -188,6 +227,19 @@ const publications = [
     image: "./resources/2019_Chaos_zhuqunxi/image.png"
   },
   {
+    id: "2019_Chaos_panchiyu",
+    title: "Emergent dynamics of coordinated cells with time delays in a tissue",
+    authors: "Chiyu Pan, Yuanren Jiang, Qunxi Zhu, Wei Lin",
+	correspondingAuthors: ["Wei Lin"], // 添加通讯作者列表
+    venue: "Chaos 2019",
+	highlight: 'Analysis of the emergence of tissue dynamics with time delays of diffusion.',
+    links: [
+      { label: "PDF", url: "https://pubs.aip.org/aip/cha/article/29/3/031101/567216" },
+      { label: "BibTex", url: "./resources/2019_Chaos_panchiyu/bib.txt" }
+    ],
+    image: "./resources/2019_Chaos_panchiyu/image.png"
+  },
+  {
     id: "2019_SCL_zhuqunxi",
     title: "Stabilizing Boolean networks by optimal event-triggered feedback control",
     authors: "Qunxi Zhu, Wei Lin",
@@ -199,6 +251,19 @@ const publications = [
       { label: "BibTex", url: "./resources/2019_SCL_zhuqunxi/bib.txt" }
     ],
     image: "./resources/2019_SCL_zhuqunxi/image.png"
+  },
+  {
+    id: "2019_TCNS_zhuqunxi",
+    title: "Controllability and observability of Boolean control networks via sampled-data control",
+    authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
+	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
+    venue: "IEEE Transactions on Control of Network Systems 2019",
+	highlight: 'Study on the controllability and observability of sampled-data Boolean control networks.',
+    links: [
+      { label: "PDF", url: "https://ieeexplore.ieee.org/abstract/document/8561222" },
+      { label: "BibTex", url: "./resources/2019_TCNS_zhuqunxi/bib.txt" }
+    ],
+    image: "./resources/2019_TCNS_zhuqunxi/image.png"
   },
   {
     id: "2019_TAC_zhuqunxi",

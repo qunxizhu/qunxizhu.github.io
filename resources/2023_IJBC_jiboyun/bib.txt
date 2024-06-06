@@ -1,0 +1,10 @@
+@article{ji2023dimension,
+  title={Dimension Reduction of Collective Attention Networks},
+  author={Ji, Boyun and Zhu, Qunxi and Lin, Wei},
+  journal={International Journal of Bifurcation and Chaos},
+  volume={33},
+  number={11},
+  pages={2350135},
+  year={2023},
+  publisher={World Scientific}
+}

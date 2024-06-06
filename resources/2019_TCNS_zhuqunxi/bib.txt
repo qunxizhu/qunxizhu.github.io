@@ -1,0 +1,10 @@
+@article{zhu2018controllability,
+  title={Controllability and observability of Boolean control networks via sampled-data control},
+  author={Zhu, Qunxi and Liu, Yang and Lu, Jianquan and Cao, Jinde},
+  journal={IEEE Transactions on Control of Network Systems},
+  volume={6},
+  number={4},
+  pages={1291--1301},
+  year={2018},
+  publisher={IEEE}
+}

@@ -1,0 +1,6 @@
+@article{liu2024let,
+  title={Let's Rectify Step by Step: Improving Aspect-based Sentiment Analysis with Diffusion Models},
+  author={Liu, Shunyu and Zhou, Jie and Zhu, Qunxi and Chen, Qin and Bai, Qingchun and Xiao, Jun and He, Liang},
+  journal={arXiv preprint arXiv:2402.15289},
+  year={2024}
+}

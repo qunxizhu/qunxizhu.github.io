@@ -1,0 +1,9 @@
+@article{pan2019emergent,
+  title={Emergent dynamics of coordinated cells with time delays in a tissue},
+  author={Pan, Chiyu and Jiang, Yuanren and Zhu, Qunxi and Lin, Wei},
+  journal={Chaos: An Interdisciplinary Journal of Nonlinear Science},
+  volume={29},
+  number={3},
+  year={2019},
+  publisher={AIP Publishing}
+}
