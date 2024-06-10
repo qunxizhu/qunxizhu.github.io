@@ -25,7 +25,8 @@ const publications = [
 	highlight: 'A versatile continuous-time generative model, SFM, that eliminates singularities encountered in the FM via switching the candidate ODEs.',
     links: [
       { label: "PDF", url: "https://arxiv.org/abs/2405.11605" },
-      { label: "BibTex", url: "./resources/2024_ICML_zhuqunxi/bib.txt" }
+      { label: "BibTex", url: "./resources/2024_ICML_zhuqunxi/bib.txt" },
+      { label: "Poster", url: "./resources/2024_ICML_zhuqunxi/poster.pdf" }
     ],
     image: "./resources/2024_ICML_zhuqunxi/image.png"
   },
