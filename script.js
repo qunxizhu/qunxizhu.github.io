@@ -39,7 +39,8 @@ const publications = [
 	highlight: 'A Fast learning stabilization controller with both rigorous exponential stability and safety guarantees.',
     links: [
       { label: "PDF", url: "https://arxiv.org/abs/2405.11406" },
-      { label: "BibTex", url: "./resources/2024_ICML_zhangjingdong/bib.txt" }
+      { label: "BibTex", url: "./resources/2024_ICML_zhangjingdong/bib.txt" },
+      { label: "Poster", url: "./resources/2024_ICML_zhangjingdong/poster.png" }
     ],
     image: "./resources/2024_ICML_zhangjingdong/image.png"
   },
@@ -52,7 +53,8 @@ const publications = [
 	highlight: 'A simulation-free framework, Fourier Neural ODEs, that effectively trains Neural ODEs.',
     links: [
       { label: "PDF", url: "https://arxiv.org/abs/2405.11542" },
-      { label: "BibTex", url: "./resources/2024_ICML_lixin/bib.txt" }
+      { label: "BibTex", url: "./resources/2024_ICML_lixin/bib.txt" },
+      { label: "Poster", url: "./resources/2024_ICML_lixin/poster.pdf" }
     ],
     image: "./resources/2024_ICML_lixin/image.png"
   },
