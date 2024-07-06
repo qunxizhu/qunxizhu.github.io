@@ -17,6 +17,19 @@ ga('send', 'pageview');
 // 文章信息列表
 const publications = [
   {
+    id: "2024_PRE_zhangjingdong",
+    title: "Machine-learning-coined noise induces energy-saving synchrony",
+    authors: "Jingdong Zhang, Luan Yang, Qunxi Zhu, Celso Grebogi, Wei Lin",
+	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    venue: "Physical Review E, Letter",
+	highlight: 'A theory-guided AI framework to design artificial noise capable of inducing energy-saving complete synchronization in any coupled nonlinear physical systems.',
+    links: [
+      { label: "PDF", url: "https://journals.aps.org/pre/accepted/e007fYd1C9d18f88e3e850c998d60e8a2e7f5ea97" },
+      { label: "BibTex", url: "./resources/2024_PRE_zhangjingdong/bib.txt" }
+    ],
+    image: "./resources/2024_PRE_zhangjingdong/image.png"
+  },
+  {
     id: "2024_ICML_zhuqunxi",
     title: "Switched Flow Matching: Eliminating Singularities via Switching ODEs",
     authors: "Qunxi Zhu, Wei Lin",
@@ -420,7 +433,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // Define the experience items
 const experiences = [
   {
-    date: '2021.6 – Present',
+    date: '2024.7 – Present',
+    title: 'Associate Professor',
+    institution: 'Research Institute of Intelligent Complex Systems, Fudan University, China'
+  },
+  {
+    date: '2021.6 – 2024.06',
     title: 'Postdoctoral Research Fellow',
     institution: 'Research Institute of Intelligent Complex Systems, Fudan University, China',
     details: 'work with <a href="https://faculty.fudan.edu.cn/wlin/zh_CN/zdylm/652034/list/index.htm">Wei Lin</a>'
@@ -544,7 +562,7 @@ const awards_and_honors = [
     details: 'National Undergraduate Mathematical Modeling Contest'
   },
   {
-    date: '2014',
+    date: '2014 (Rank: 2nd/216)',
     details: 'National Undergraduate Scholarship, ZJNU'
   }
 ];

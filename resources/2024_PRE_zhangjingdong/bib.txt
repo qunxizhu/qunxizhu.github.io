@@ -1,0 +1,6 @@
+@article{zhang2024PRE,
+  title={Machine-learning-coined noise induces energy-saving synchrony},
+  author={Jingdong Zhang and Luan Yang and Qunxi Zhu and Celso Grebogi and Wei Lin},
+  journal={Physical Review E, Letter},
+  year={2024}
+}
