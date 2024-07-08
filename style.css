@@ -265,7 +265,7 @@ code {
 .name {
   line-height: 150%; /* 设置行高 */
   font-size: 20pt; /* 设置字体大小 */
-  color: blue; /* 设置文本颜色为蓝色 */
+  color: rgb(46, 117, 182); /* blue设置文本颜色为蓝色 */
   font-weight: bold; /* 设置文本为加粗 */
 }
 
@@ -325,4 +325,41 @@ img.paper {
   margin-bottom: 5px; /* 图片下方留出间距 */
   margin: 0 1em 0 0; /* 图片上右下左间距 */
   flex: 0 0 30%; /* 设置图片部分占25%宽度，不允许缩小 */
+}
+
+.light-blue-box {
+    background-color: lightblue; /* 设置背景颜色为淡蓝色 */
+    border: 2px solid lightblue; /* 设置边框为淡蓝色 */
+    color: black; /* 设置文字颜色为黑色 */
+	font-weight: bold;
+    padding: 2px; /* 设置内边距 */
+    display: inline-block; /* 使元素包裹文字 */
+	border-radius: 5px; /* 设置边角圆滑 */
+}
+.light-pink-box {
+    background-color: lightpink; /* lightpink 设置背景颜色为淡蓝色 */
+    border: 2px solid lightpink; /* 设置边框为淡蓝色 */
+    color: black; /* 设置文字颜色为黑色 */
+	font-weight: bold;
+    padding: 2px; /* 设置内边距 */
+    display: inline-block; /* 使元素包裹文字 */
+	border-radius: 5px; /* 设置边角圆滑 */
+}
+.light-green-box {
+    background-color: lightgreen; /* 设置背景颜色为淡蓝色 */
+    border: 2px solid lightgreen; /* 设置边框为淡蓝色 */
+    color: black; /* 设置文字颜色为黑色 */
+	font-weight: bold;
+    padding: 2px; /* 设置内边距 */
+    display: inline-block; /* 使元素包裹文字 */
+	border-radius: 5px; /* 设置边角圆滑 */
+}
+.light-red-box {
+    background-color: lightcoral; /* 设置背景颜色为淡蓝色 */
+    border: 2px solid lightcoral; /* 设置边框为淡蓝色 */
+    color: black; /* 设置文字颜色为黑色 */
+	font-weight: bold;
+    padding: 2px; /* 设置内边距 */
+    display: inline-block; /* 使元素包裹文字 */
+	border-radius: 5px; /* 设置边角圆滑 */
 }
