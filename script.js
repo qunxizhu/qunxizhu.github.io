@@ -17,6 +17,19 @@ ga('send', 'pageview');
 // 文章信息列表
 const publications = [
   {
+    id: "2024_Arxiv_zhuqunxi",
+    title: "Governing equation discovery of a complex system from snapshots",
+    authors: "Qunxi Zhu, Bolin Zhao, Jingdong Zhang, Peiyang Li, Wei Lin",
+	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    venue: "arXiv:2410.16694",
+	highlight: 'A data-driven, simulation-free framework, called SpIDES, that discovers the governing equation of a complex system from snapshots.',
+    links: [
+      { label: "PDF", url: "https://arxiv.org/pdf/2410.16694" },
+      { label: "BibTex", url: "./resources/2024_Arxiv_zhuqunxi/bib.txt" }
+    ],
+    image: "./resources/2024_Arxiv_zhuqunxi/image.png"
+  },
+  {
     id: "2024_PRE_zhangjingdong",
     title: "Machine-learning-coined noise induces energy-saving synchrony",
     authors: "Jingdong Zhang, Luan Yang, Qunxi Zhu, Celso Grebogi, Wei Lin",

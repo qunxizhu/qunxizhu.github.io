@@ -1,0 +1,6 @@
+@article{zhu2024SpIDEs,
+  title={Governing equation discovery of a complex system from snapshots},
+  author={Qunxi Zhu and Bolin Zhao and Jingdong Zhang and Peiyang Li and Wei Lin},
+  journal={arXiv:2410.16694},
+  year={2024}
+}
