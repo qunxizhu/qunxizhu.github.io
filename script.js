@@ -30,6 +30,20 @@ const publications = [
     image: "./resources/2024_Arxiv_zhuqunxi/image.png"
   },
   {
+    id: "2025_ICML_zhangjingdong",
+    title: "Neural Event-Triggered Control with Optimal Scheduling",
+    authors: "Luan Yang, Jingdong Zhang, Qunxi Zhu, Wei Lin",
+	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    venue: "ICML 2025",
+	highlight: 'A framework that learns the event-triggered controller with minimal triggering times in resource-constrained scenarios.',
+    links: [
+      { label: "PDF", url: "https://arxiv.org/abs/2405.11406" },
+      { label: "BibTex", url: "./resources/2025_ICML_zhangjingdong/bib.txt" },
+      { label: "Poster", url: "./resources/2025_ICML_zhangjingdong/poster.png" }
+    ],
+    image: "./resources/2025_ICML_zhangjingdong/image.png"
+  },
+  {
     id: "2024_PRE_zhangjingdong",
     title: "Machine-learning-coined noise induces energy-saving synchrony",
     authors: "Jingdong Zhang, Luan Yang, Qunxi Zhu, Celso Grebogi, Wei Lin",

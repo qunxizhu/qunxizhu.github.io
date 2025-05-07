@@ -1,0 +1,6 @@
+@article{zhang2025ICML,
+  title={Neural Event-Triggered Control with Optimal Scheduling},
+  author={Luan Yang and Jingdong Zhang and Qunxi Zhu and Wei Lin},
+  journal={ICML},
+  year={2025}
+}
