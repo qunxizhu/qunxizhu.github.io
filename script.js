@@ -30,6 +30,19 @@ const publications = [
     image: "./resources/2024_Arxiv_zhuqunxi/image.png"
   },
   {
+    id: "2026_ICLR_zhaobolin",
+    title: "Delay Flow Matching",
+    authors: "Bolin Zhao, Xiaoyu Zhang, Yuting Dong, Xin Lu, Wei Lin, Qunxi Zhu",
+	correspondingAuthors: ["Qunxi Zhu", "Wei Lin", "Xin Lu"], // 添加通讯作者列表
+    venue: "ICLR 2026",
+	highlight: "A generative framework with universal approximation guarantees that integrates Delay Differential Equations into Flow Matching.",
+    links: [
+      { label: "PDF", url: "https://openreview.net/forum?id=6lH1XblLpo" },
+      { label: "BibTex", url: "./resources/2026_ICLR_zhaobolin/bib.txt" }
+    ],
+    image: "./resources/2026_ICLR_zhaobolin/image.png"
+  },
+  {
     id: "2025_ICML_zhangjingdong",
     title: "Neural Event-Triggered Control with Optimal Scheduling",
     authors: "Luan Yang, Jingdong Zhang, Qunxi Zhu, Wei Lin",

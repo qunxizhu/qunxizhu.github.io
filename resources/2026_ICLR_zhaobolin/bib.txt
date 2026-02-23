@@ -1,0 +1,8 @@
+@inproceedings{
+zhao2026delay,
+title={{Delay} {Flow} {Matching}},
+author={Bolin Zhao and Xiaoyu Zhang and Yuting Dong and Xin Lu and Wei Lin and Qunxi Zhu},
+booktitle={The Fourteenth International Conference on Learning Representations},
+year={2026},
+url={https://openreview.net/forum?id=6lH1XblLpo}
+}
