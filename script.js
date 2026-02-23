@@ -474,7 +474,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const experiences = [
   {
     date: '2024.7 – Present',
-    title: 'Associate Professor',
+    title: 'Young Principal Investigator',
     institution: 'Research Institute of Intelligent Complex Systems, Fudan University, China'
   },
   {
