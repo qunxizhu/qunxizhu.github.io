@@ -30,6 +30,19 @@ const publications = [
     image: "./resources/2024_Arxiv_zhuqunxi/image.png"
   },
   {
+    id: "2026_DCDS-Intelligence_zhangjiaxuan",
+    title: "Extended Neural Delay Differential Equations",
+    authors: "Jiaxuan Zhang, Qunxi Zhu, Wei Lin",
+	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    venue: "Discrete and Continuous Dynamical Systems - Series I: Intelligence 2026",
+	highlight: "ENDDEs, taking delay, termination time, initial state and neural network parameters as trainable parameters.",
+    links: [
+      { label: "PDF", url: "https://www.aimsciences.org/article/doi/10.3934/dcdsi.A260103" },
+      { label: "BibTex", url: "./resources/2026_DCDS-Intelligence_zhangjiaxuan/bib.txt" }
+    ],
+    image: "./resources/2026_DCDS-Intelligence_zhangjiaxuan/image.png"
+  },
+  {
     id: "2026_ICLR_zhaobolin",
     title: "Delay Flow Matching",
     authors: "Bolin Zhao, Xiaoyu Zhang, Yuting Dong, Xin Lu, Wei Lin, Qunxi Zhu",
@@ -61,7 +74,7 @@ const publications = [
     title: "Machine-learning-coined noise induces energy-saving synchrony",
     authors: "Jingdong Zhang, Luan Yang, Qunxi Zhu, Celso Grebogi, Wei Lin",
 	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
-    venue: "Physical Review E, Letter",
+    venue: "Physical Review E, Letter 2024",
 	highlight: 'A theory-guided AI framework to design artificial noise capable of inducing energy-saving complete synchronization in any coupled nonlinear physical systems.',
     links: [
       { label: "PDF", url: "https://journals.aps.org/pre/accepted/e007fYd1C9d18f88e3e850c998d60e8a2e7f5ea97" },

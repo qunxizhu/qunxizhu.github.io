@@ -1,0 +1,8 @@
+@inproceedings{
+zhang2026ENDDE,
+title={{Extended} {Neural} {Delay} {Differential} {Equations}},
+author={Jiaxuan Zhang and  Qunxi Zhu and Wei Lin},
+booktitle={Discrete and Continuous Dynamical Systems - Series I: Intelligence},
+year={2026},
+url={https://www.aimsciences.org/article/doi/10.3934/dcdsi.A260103}
+}
