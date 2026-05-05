@@ -30,6 +30,19 @@ const publications = [
     image: "./resources/2024_Arxiv_zhuqunxi/image.png"
   },
   {
+    id: "2026_Chaos_zhangjiaxuan",
+    title: "A general framework for neural delay differential equations with various delay types",
+    authors: "Jiaxuan Zhang, Qunxi Zhu, Wei Lin",
+	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    venue: "Chaos 2026",
+	highlight: 'A simulation-free training framework for learning neural delay differential equations with various delay types.',
+    links: [
+      { label: "PDF", url: "https://doi.org/10.1063/5.0325998" },
+      { label: "BibTex", url: "./resources/2026_Chaos_zhangjiaxuan/bib.txt" }
+    ],
+    image: "./resources/2026_Chaos_zhangjiaxuan/image.png"
+  },
+  {
     id: "2026_ICML_luwanfeng",
     title: "Interpretable Functional Koopman Learning with Non-Markovian Closure for Spatiotemporal Systems",
     authors: "Wanfeng Lu, He Ma, Wei Lin, Qunxi Zhu",
@@ -40,7 +53,7 @@ const publications = [
       { label: "PDF", url: "https://openreview.net/forum?id=lquDiBCgNJ" },
       { label: "BibTex", url: "./resources/2026_ICML_luwanfeng/bib.txt" }
     ],
-    image: "./resources/2025_ICML_zhangjingdong/image.png"
+    image: "./resources/2026_ICML_luwanfeng/image.png"
   },
   {
     id: "2026_DCDS-Intelligence_zhangjiaxuan",
@@ -412,7 +425,9 @@ function renderPublications() {
     venueSpan.classList.add('badge');
     //venueSpan.textContent = pub.venue;
 	// 使用正则表达式移除字符串末尾的年份（假设格式为 'YYYY'）
-    venueSpan.textContent = pub.venue.replace(/\s*\d{4}$/, '');
+    // venueSpan.textContent = pub.venue.replace(/\s*\d{4}$/, '');
+	// 匹配独立的 4 位数字（作为完整单词），将其连同周围的空格一并删除。
+	venueSpan.textContent = pub.venue.replace(/\s*\b\d{4}\b\s*/, ' ').trim();
     imageContainer.appendChild(venueSpan);  // 将期刊名称添加到图片容器的顶部
 
     const img = document.createElement('img');
