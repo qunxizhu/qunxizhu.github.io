@@ -47,6 +47,10 @@ function makePub({
   };
 }
 
+// 这些会议在 badge 上保留年份,其他(期刊等)删除年份
+// 想新增会议,在这里加一个字符串即可
+const KEEP_YEAR_VENUES = ['ICML', 'ICLR', 'NeurIPS', 'AAAI', 'COLING', 'ACL'];
+
 // 文章信息列表
 const publications = [
   makePub({
@@ -345,11 +349,11 @@ function renderPublications() {
 
     const venueSpan = document.createElement('div');
     venueSpan.classList.add('badge');
-    //venueSpan.textContent = pub.venue;
-	// 使用正则表达式移除字符串末尾的年份（假设格式为 'YYYY'）
-    // venueSpan.textContent = pub.venue.replace(/\s*\d{4}$/, '');
-	// 匹配独立的 4 位数字（作为完整单词），将其连同周围的空格一并删除。
-	venueSpan.textContent = pub.venue.replace(/\s*\b\d{4}\b\s*/, ' ').trim();
+    // 白名单里的会议保留年份(如 ICML 2024),其余删除年份(如 Chaos 2026 → Chaos)
+    const keepYear = KEEP_YEAR_VENUES.some(v => pub.venue.startsWith(v + ' '));
+    venueSpan.textContent = keepYear
+      ? pub.venue
+      : pub.venue.replace(/\s*\b\d{4}\b\s*/, ' ').trim();
     imageContainer.appendChild(venueSpan);  // 将期刊名称添加到图片容器的顶部
 
     const img = document.createElement('img');
