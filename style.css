@@ -286,9 +286,24 @@ code {
 }
 
 
+/* highlight —— 灰底斜体说明文字（不再使用刺眼红色） */
 .highlight {
-  color: red;
-  font-weight: bold;
+  color: #444;
+  font-style: italic;
+  background-color: #f6f8fb;
+  padding: 6px 10px;
+  margin-top: 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* venue badge 中的荣誉关键词 —— 金色加粗（奖项徽章感） */
+.venue-honor {
+  color: #ffd166;
+  font-weight: 700;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.2px;
 }
 
 

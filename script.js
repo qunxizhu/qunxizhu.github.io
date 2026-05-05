@@ -15,12 +15,6 @@ ga('create', 'UA-96229663-1', 'D-X-Y.github.io');
 ga('send', 'pageview');
 
 // 工厂函数：根据 id 自动拼接 resources 路径，避免每条文章都重复手写
-// 参数说明:
-//   id, title, authors, correspondingAuthors, venue, highlight: 同原结构
-//   pdf:        PDF 的外部链接(如 arxiv / 期刊官网)
-//   poster:     'png' 或 'pdf',表示 ./resources/{id}/poster.{ext} 的扩展名;不传则无 poster
-//   extraLinks: 额外的链接,如 techxplore / phys.org 等,格式 [{label, url}, ...]
-//   imageExt:   图片扩展名,默认 'png'
 function makePub({
   id, title, authors, correspondingAuthors, venue, highlight,
   pdf,
@@ -35,7 +29,6 @@ function makePub({
   if (poster) links.push({ label: 'Poster', url: `${base}/poster.${poster}` });
   links.push(...extraLinks);
 
-  // id 格式校验,能在 console 里直接发现拼错的 id
   if (!/^\d{4}_[A-Za-z\-]+_[a-z]+$/.test(id)) {
     console.warn(`Publication id 格式可疑: ${id}`);
   }
@@ -48,8 +41,38 @@ function makePub({
 }
 
 // 这些会议在 badge 上保留年份,其他(期刊等)删除年份
-// 想新增会议,在这里加一个字符串即可
 const KEEP_YEAR_VENUES = ['ICML', 'ICLR', 'NeurIPS', 'AAAI', 'COLING', 'ACL'];
+
+// venue badge 中需要高亮的荣誉关键词(大小写不敏感,按长度从长到短匹配避免子串吃掉父串)
+const VENUE_HONOR_KEYWORDS = [
+  'Nature Communications',
+  "Editor's Pick",
+  'Featured article',
+  'Spotlight',
+];
+
+// 工具函数：转义正则元字符
+function escapeRegExp(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// 工具函数:将 venue 文本中的荣誉关键词包成 <span class="venue-honor">
+function highlightVenueHonors(venueText) {
+  // 按长度倒序,避免短关键词吃掉长关键词的一部分
+  const sorted = [...VENUE_HONOR_KEYWORDS].sort((a, b) => b.length - a.length);
+  let result = venueText;
+  sorted.forEach(kw => {
+    // 用 \b 词边界 + 大小写不敏感
+    const pattern = new RegExp(`(${escapeRegExp(kw)})`, 'gi');
+    result = result.replace(pattern, '<span class="venue-honor">$1</span>');
+  });
+  return result;
+}
+
+// 工具函数:删掉 venue 中的四位年份(只对非白名单 venue 调用)
+function stripYear(venueText) {
+  return venueText.replace(/\s*\b\d{4}\b\s*/, ' ').replace(/\s+/g, ' ').trim();
+}
 
 // 文章信息列表
 const publications = [
@@ -149,7 +172,7 @@ const publications = [
   }),
   makePub({
     id: "2024_COLING_liushunyu",
-    title: "Let’s Rectify Step by Step: Improving Aspect-based Sentiment Analysis with Diffusion Models",
+    title: "Let's Rectify Step by Step: Improving Aspect-based Sentiment Analysis with Diffusion Models",
     authors: "Shunyu Liu, Jie Zhou, Qunxi Zhu, Qin Chen, Qingchun Bai, Jun Xiao, Liang He",
     correspondingAuthors: ["Jie Zhou"],
     venue: "COLING 2024",
@@ -161,8 +184,8 @@ const publications = [
     title: "Higher-order Granger reservoir computing: Simultaneously achieving scalable complex structures inference and accurate dynamics prediction",
     authors: "Xin Li, Qunxi Zhu, Chengli Zhao, Xiaojun Duan, Bolin Zhao, Xue Zhang, Huanfei Ma, Jie Sun, Wei Lin",
     correspondingAuthors: ["Qunxi Zhu", "Chengli Zhao", "Wei Lin"],
-    venue: "Nature Communications 2024",
-    highlight: 'Featured article in  “AI and machine learning” and “Applied physics and mathematics”.',
+    venue: "Nature Communications 2024 (Featured article)",
+    highlight: 'Higher-order Granger reservoir computing for inferring complex network structures and predicting dynamics.',
     pdf: "https://www.nature.com/articles/s41467-024-46852-1",
     extraLinks: [
       { label: "techxplore", url: "https://techxplore.com/news/2024-03-lightweight-machine-method-scalable-inference.html" },
@@ -212,8 +235,8 @@ const publications = [
     title: "Leveraging neural differential equations and adaptive delayed feedback to detect unstable periodic orbits based on irregularly-sampled time series",
     authors: "Qunxi Zhu, Xin Li, Wei Lin",
     correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
-    venue: "Chaos 2023",
-    highlight: 'Editor’s Pick.',
+    venue: "Chaos 2023 (Editor's Pick)",
+    highlight: 'A data-driven and model-free method, leveraging neural differential equations and adaptive delayed feedback, to detect unstable periodic orbits from irregularly-sampled time series.',
     pdf: "https://doi.org/10.1063/5.0143839",
   }),
   makePub({
@@ -324,8 +347,6 @@ const publications = [
     highlight: 'Necessary and sufficient conditions for the observability of BCNs.',
     pdf: "http://engine.scichina.com/publisher/scp/journal/SCIS/doi/10.1007/s11432-017-9135-4",
   }),
-  // ... 更多文章按相同格式添加,只需写 id / title / authors / correspondingAuthors / venue / highlight / pdf
-  // 路径会根据 id 自动拼出来。如有 poster 传 'png' 或 'pdf';有额外外链用 extraLinks 数组。
 ];
 
 // 渲染文章信息到页面
@@ -337,48 +358,39 @@ function renderPublications() {
     pubDiv.classList.add('paper');
     pubDiv.id = pub.id;
 
-    //const img = document.createElement('img');
-    //img.classList.add('paper');
-    //img.src = pub.image;
-    //img.title = pub.title;
-    //pubDiv.appendChild(img);
-	
-	// 创建包含图片和标题的容器
+    // 创建包含图片和标题的容器
     const imageContainer = document.createElement('div');
     imageContainer.classList.add('image-container');
 
     const venueSpan = document.createElement('div');
     venueSpan.classList.add('badge');
-    // 白名单里的会议保留年份(如 ICML 2024),其余删除年份(如 Chaos 2026 → Chaos)
+
+    // 判断 venue 是否在白名单(开头匹配 "ICML "、"NeurIPS " 等)
     const keepYear = KEEP_YEAR_VENUES.some(v => pub.venue.startsWith(v + ' '));
-    venueSpan.textContent = keepYear
-      ? pub.venue
-      : pub.venue.replace(/\s*\b\d{4}\b\s*/, ' ').trim();
-    imageContainer.appendChild(venueSpan);  // 将期刊名称添加到图片容器的顶部
+    // 不在白名单的删年份(用更稳的正则,只匹配独立的四位数字,不会误伤 "Series I" 之类)
+    const venueText = keepYear ? pub.venue : stripYear(pub.venue);
+    // 高亮荣誉关键词,用 innerHTML 写入(因为有 <span> 标签)
+    venueSpan.innerHTML = highlightVenueHonors(venueText);
+
+    imageContainer.appendChild(venueSpan);
 
     const img = document.createElement('img');
     img.classList.add('paper');
     img.src = pub.image;
-    img.alt = pub.title;  // 添加 alt 属性提升无障碍性和SEO
-    imageContainer.appendChild(img);  // 将图片添加到容器
+    img.alt = pub.title;
+    imageContainer.appendChild(img);
 
     pubDiv.appendChild(imageContainer);
-	
-	
-	
 
-	const infoDiv = document.createElement('div');
-    infoDiv.classList.add('paper-text'); // 为文本部分添加类名
-	
+    const infoDiv = document.createElement('div');
+    infoDiv.classList.add('paper-text');
+
     const titleStrong = document.createElement('strong');
     titleStrong.textContent = pub.title;
     infoDiv.appendChild(titleStrong);
 
     const authors = document.createElement('div');
-    //authors.innerHTML = `<br>${pub.authors}<br> in ${pub.venue}<br>`;
-	//authors.innerHTML = `${pub.authors}<br> in ${pub.venue}<br>`; //JavaScript 中在创建 HTML 元素时直接插入作者和期刊信息，避免段落标记：
-    //infoDiv.appendChild(authors);
-	const authorsList = pub.authors.split(', ').map(author => {
+    const authorsList = pub.authors.split(', ').map(author => {
       if (pub.correspondingAuthors.includes(author)) {
         if (author === 'Qunxi Zhu') {
           return `<span class="author-corresponding author-qunxi-zhu">${author}</span>`;
@@ -393,13 +405,6 @@ function renderPublications() {
     }).join(', ');
     authors.innerHTML = `${authorsList}<br> in ${pub.venue}<br>`;
     infoDiv.appendChild(authors);
-	//authors.innerHTML = `${authorsList}`;
-    //infoDiv.appendChild(authors);
-
-    //const venueSpan = document.createElement('span');
-    //venueSpan.classList.add('badge');
-    //venueSpan.textContent = `<br> in ${pub.venue}<br>`;
-    //authors.appendChild(venueSpan);
 
     pub.links.forEach(link => {
       const anchor = document.createElement('a');
@@ -409,8 +414,8 @@ function renderPublications() {
       infoDiv.appendChild(anchor);
       infoDiv.appendChild(document.createTextNode(" ] "));
     });
-	
-	const highlight = document.createElement('div');
+
+    const highlight = document.createElement('div');
     highlight.classList.add('highlight');
     highlight.textContent = pub.highlight;
     infoDiv.appendChild(highlight);
@@ -424,17 +429,10 @@ function renderPublications() {
   });
 }
 
-// 当页面加载完毕时，渲染文章信息
 document.addEventListener('DOMContentLoaded', () => {
   console.log("Document loaded. Rendering publications...");
   renderPublications();
 });
-
-
-
-
-
-
 
 
 // Define the experience items
@@ -476,18 +474,12 @@ const experiences = [
 ];
 
 function renderExperiences() {
-  // Find the experiences div
   const experiencesDiv = document.getElementById('experiences');
-  
-  // Create the paper div
   const paperDiv = document.createElement('div');
   paperDiv.className = 'paper';
-
-  // Create the ul element
   const list = document.createElement('ul');
-  list.classList.add('paper-text'); // 为文本部分添加类名
-  
-  // Append experience items to the list
+  list.classList.add('paper-text');
+
   experiences.forEach(exp => {
     const listItem = document.createElement('li');
     if (exp.details) {
@@ -495,14 +487,10 @@ function renderExperiences() {
     } else {
       listItem.innerHTML = `${exp.date}, ${exp.title}, ${exp.institution}.`;
     }
-    
     list.appendChild(listItem);
   });
 
-  // Append the list to the paper div
   paperDiv.appendChild(list);
-
-  // Append the paper div to the experiences div
   experiencesDiv.appendChild(paperDiv);
 }
 
@@ -511,12 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
-
-
-
-
-// Define the awards and honors items
+// Awards and Honors
 const awards_and_honors = [
   {
     date: '2021',
@@ -532,13 +515,13 @@ const awards_and_honors = [
   },
   {
     date: '2019',
-	award: 'Final rank: 2st',
+    award: 'Final rank: 2st',
     details: '2019 Zhejiang Lab Cup Global AI Competition: Opinion Mining For E-Commerce Reviews (awarded 100,000 rmb)'
   },
   {
     date: '2019',
     award: 'Final rank: 1st',
-    details: 'The 5th Baidu & XJTU Big Data Contest The First IKCEST “The Belt and Road” International Big Data Contest (awarded 50,000 rmb)'
+    details: 'The 5th Baidu & XJTU Big Data Contest The First IKCEST "The Belt and Road" International Big Data Contest (awarded 50,000 rmb)'
   },
   {
     date: '2018',
@@ -550,22 +533,22 @@ const awards_and_honors = [
   },
   {
     date: '2016',
-	award: 'Second prize',
+    award: 'Second prize',
     details: 'National Graduate Mathematical Modeling Contest'
   },
   {
     date: '2015',
-	award: 'Silver Medal',
+    award: 'Silver Medal',
     details: 'ACM-ICPC Asia Beijing Regional Contest'
   },
   {
     date: '2014 and 2015',
-	award: 'Gold Medal',
+    award: 'Gold Medal',
     details: 'Zhejiang Provincial University Programming Contest'
   },
   {
     date: '2014',
-	award: 'Second prize',
+    award: 'Second prize',
     details: 'National Undergraduate Mathematical Modeling Contest'
   },
   {
@@ -575,18 +558,12 @@ const awards_and_honors = [
 ];
 
 function renderAwards_and_Honors() {
-  // Find the experiences div
   const awards_and_honorsDiv = document.getElementById('awards_and_honors');
-  
-  // Create the paper div
   const paperDiv = document.createElement('div');
   paperDiv.className = 'paper';
-
-  // Create the ul element
   const list = document.createElement('ul');
-  list.classList.add('paper-text'); // 为文本部分添加类名
-  
-  // Append awards_and_honors items to the list
+  list.classList.add('paper-text');
+
   awards_and_honors.forEach(exp => {
     const listItem = document.createElement('li');
     if (exp.award) {
@@ -594,14 +571,10 @@ function renderAwards_and_Honors() {
     } else {
       listItem.innerHTML = `${exp.details}, ${exp.date}.`;
     }
-    
     list.appendChild(listItem);
   });
 
-  // Append the list to the paper div
   paperDiv.appendChild(list);
-
-  // Append the paper div to the experiences div
   awards_and_honorsDiv.appendChild(paperDiv);
 }
 
