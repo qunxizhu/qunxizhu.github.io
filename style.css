@@ -320,13 +320,14 @@ img.paper {
   padding: 0; /* 移除内边距 */
 }
 
+/* venue badge —— 改为深蓝,与姓名同色系,告别紫色孤岛 */
 .badge {
-    background-color: purple;
+    background-color: rgb(30, 90, 150);
     color: white;
     font-weight: bold;
-    padding: 4px 10px;          /* 加横向 padding,文字不贴边 */
+    padding: 4px 10px;
     border-radius: 5px;
-    display: block;             /* 不再用 flex,避免 span 被拆成独立 flex item */
+    display: block;
     text-align: center;
     line-height: 1.4;
 }
@@ -338,39 +339,41 @@ img.paper {
   flex: 0 0 30%; /* 设置图片部分占25%宽度，不允许缩小 */
 }
 
-.light-blue-box {
-    background-color: lightblue; /* 设置背景颜色为淡蓝色 */
-    border: 2px solid lightblue; /* 设置边框为淡蓝色 */
-    color: black; /* 设置文字颜色为黑色 */
-	font-weight: bold;
-    padding: 2px; /* 设置内边距 */
-    display: inline-block; /* 使元素包裹文字 */
-	border-radius: 5px; /* 设置边角圆滑 */
-}
-.light-pink-box {
-    background-color: lightpink; /* lightpink 设置背景颜色为淡蓝色 */
-    border: 2px solid lightpink; /* 设置边框为淡蓝色 */
-    color: black; /* 设置文字颜色为黑色 */
-	font-weight: bold;
-    padding: 2px; /* 设置内边距 */
-    display: inline-block; /* 使元素包裹文字 */
-	border-radius: 5px; /* 设置边角圆滑 */
-}
-.light-green-box {
-    background-color: lightgreen; /* 设置背景颜色为淡蓝色 */
-    border: 2px solid lightgreen; /* 设置边框为淡蓝色 */
-    color: black; /* 设置文字颜色为黑色 */
-	font-weight: bold;
-    padding: 2px; /* 设置内边距 */
-    display: inline-block; /* 使元素包裹文字 */
-	border-radius: 5px; /* 设置边角圆滑 */
-}
+/* ============================================================
+   职位标签 / 强调标签 —— 统一收敛到蓝色系
+   light-red-box: 主标签(实心蓝,如"青年研究员"、"New Journal")
+   light-blue-box / light-green-box: 次级标签(浅蓝描边,如"博士生导师"、"硕士生导师")
+   ============================================================ */
 .light-red-box {
-    background-color: lightcoral; /* 设置背景颜色为淡蓝色 */
-    border: 2px solid lightcoral; /* 设置边框为淡蓝色 */
-    color: black; /* 设置文字颜色为黑色 */
-	font-weight: bold;
-    padding: 2px; /* 设置内边距 */
-    display: inline-block; /* 使元素包裹文字 */
-	border-radius: 5px; /* 设置边角圆滑 */
+    background-color: rgb(46, 117, 182);
+    border: 1px solid rgb(46, 117, 182);
+    color: white;
+    font-weight: bold;
+    padding: 2px 8px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.light-blue-box,
+.light-green-box {
+    background-color: #e3eef9;
+    border: 1px solid #c7daee;
+    color: rgb(30, 90, 150);
+    font-weight: bold;
+    padding: 2px 8px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+/* 招生提示 callout —— 左侧粉红色竖线 + 极淡粉底,比纯粉色块更正式 */
+.light-pink-box {
+    background-color: #fdf2f5;
+    border: 1px solid #f5d6dd;
+    border-left: 4px solid #e85a7a;
+    color: #5a2a36;
+    font-weight: 500;
+    padding: 10px 14px;
+    display: inline-block;
+    border-radius: 0 5px 5px 0;
+    line-height: 1.7;
 }
