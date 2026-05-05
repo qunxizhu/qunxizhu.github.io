@@ -34,7 +34,7 @@ const publications = [
     title: "Interpretable Functional Koopman Learning with Non-Markovian Closure for Spatiotemporal Systems",
     authors: "Wanfeng Lu, He Ma, Wei Lin, Qunxi Zhu",
 	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
-    venue: "ICML 2026",
+    venue: "ICML 2026 (Spotlight)",
 	highlight: 'A functional Koopman learning framework with non-Markovian memory correction for modeling spatiotemporal process.',
     links: [
       { label: "PDF", url: "https://openreview.net/forum?id=lquDiBCgNJ" },
