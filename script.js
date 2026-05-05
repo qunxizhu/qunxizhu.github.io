@@ -1,133 +1,610 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+// 引入谷歌分析脚本
+(function(i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r;
+  i[r] = i[r] || function() {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date();
+  a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0];
+  a.async = 1;
+  a.src = g;
+  m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Qunxi Zhu (朱群喜) — Fudan University</title>
-  <meta name="description" content="Qunxi Zhu (朱群喜), Young Principal Investigator at Research Institute of Intelligent Complex Systems, Fudan University. Research on machine learning for complex systems.">
-  <meta name="keywords" content="Qunxi Zhu, 朱群喜, Fudan University, machine learning, complex systems, neural ODE, dynamical systems">
-  <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="./resources/zqx-small.jpg">
-</head>
+ga('create', 'UA-96229663-1', 'D-X-Y.github.io');
+ga('send', 'pageview');
 
-<body>
-  <div class="header">
-    <div class="header-content">
-      <img title="Qunxi Zhu" alt="Qunxi Zhu" class="profile-img" src="./resources/zqx.jpg">
-      <div class="info">
-        <span class="name">Qunxi Zhu (朱群喜)</span>
-        <p>
-          <span>
-            <span class="role-tag role-tag-primary">青年研究员</span>
-            <span class="role-tag role-tag-secondary">博士生导师</span>
-            <span class="role-tag role-tag-secondary">硕士生导师</span>
-          </span>
-          <span>Young Principal Investigator</span>
-          <span>Research Institute of Intelligent Complex Systems, Fudan University (复旦大学)</span>
-          <span><strong>Address</strong>: 220 Handan Road, Shanghai 200433, China</span>
-          <span><strong>Email</strong>: <a href="mailto:qxzhu@fudan.edu.cn">qxzhu@fudan.edu.cn</a></span>
-          <span><strong>Homepage@IICS</strong>: <a href="https://iics.fudan.edu.cn/7d/52/c33358a687442/page.htm">https://iics.fudan.edu.cn/7d/52/c33358a687442/page.htm</a></span>
-        </p>
-      </div>
-    </div>
-  </div>
+// 工厂函数：根据 id 自动拼接 resources 路径，避免每条文章都重复手写
+// 参数说明:
+//   id, title, authors, correspondingAuthors, venue, highlight: 同原结构
+//   pdf:        PDF 的外部链接(如 arxiv / 期刊官网)
+//   poster:     'png' 或 'pdf',表示 ./resources/{id}/poster.{ext} 的扩展名;不传则无 poster
+//   extraLinks: 额外的链接,如 techxplore / phys.org 等,格式 [{label, url}, ...]
+//   imageExt:   图片扩展名,默认 'png'
+function makePub({
+  id, title, authors, correspondingAuthors, venue, highlight,
+  pdf,
+  poster,
+  extraLinks = [],
+  imageExt = 'png',
+}) {
+  const base = `./resources/${id}`;
+  const links = [];
+  if (pdf)    links.push({ label: 'PDF',    url: pdf });
+              links.push({ label: 'BibTex', url: `${base}/bib.txt` });
+  if (poster) links.push({ label: 'Poster', url: `${base}/poster.${poster}` });
+  links.push(...extraLinks);
 
-  <div class="section">
-    <h2>About Me
-      (<a href="https://www.researchgate.net/profile/Qunxi-Zhu">ResearchGate</a> -
-       <a href="https://scholar.google.com/citations?user=45oFQD4AAAAJ&hl=zh-CN">Google Scholar</a>)
-    </h2>
-    <div class="paper">
-      <div class="paper-text">
-        <p>
-          Hi! I am Qunxi Zhu, a Young Principal Investigator at <a href="https://iics.fudan.edu.cn/">Research Institute of Intelligent Complex Systems (IICS)</a> (智能复杂体系基础理论与关键技术实验室), Fudan University, China. Previously, I was a Postdoctoral Research Fellow at IICS. I received my Ph.D. in Applied Mathematics from Fudan University, advised by Professor <a href="https://faculty.fudan.edu.cn/wlin/zh_CN/zdylm/652034/list/index.htm">Wei Lin</a> (杰青、教务处处长). I am the Managing Editor of a new journal, <a href="https://www.aimsciences.org/DCDS-I">Discrete and Continuous Dynamical Systems - Series I: Intelligence</a> (DCDS-Intelligence).
-        </p>
-        <p style="margin-top: 0.8em;">
-          My goal is to develop advanced machine learning models, foundational theories, and efficient algorithms that can understand and reveal the underlying mechanisms of diverse complex systems from high-dimensional data (<b>Machine Learning + Complex Systems</b>).
-        </p>
-        <p style="margin-top: 0.8em; margin-bottom: 0.4em;">
-          Recently, my research interests include:
-        </p>
-        <ul>
-          <li><b>Machine learning for complex systems</b>: promoting the developments of complex systems with machine learning;</li>
-          <li><b>Complex systems for machine learning</b>: developing advanced machine learning models inspired by the theories and methods of complex systems;</li>
-          <li><b>General topics</b>: nonlinear complex systems modeling, reconstruction, and prediction; neural (learning) control; complex dynamical networks reduction; lightweight reservoir computing; Boolean networks; continuous-depth neural networks; continuous-time generative modeling; computational optimal transport; scientific/mathematical discovery.</li>
-        </ul>
-        <p style="margin-top: 0.6em;">
-          My work, as the first author or corresponding author, has been published in international journals such as Nature Communications, Research, Physical Review Research/E, IEEE Transactions on Automatic Control, SIAM Journal on Control and Optimization, Systems &amp; Control Letters, Chaos as well as artificial intelligence conferences like ICML, NeurIPS, ICLR, and AAAI.
-        </p>
-        <div class="callout">
-          欢迎勤奋好学且踏实，具有数学、物理、自动化、计算机等相关背景的同学报考博/硕士研究生，同时欢迎博士后。此外，欢迎具有自驱力的本科生和研究生（需导师同意）来复旦大学进行短期/长期交流访问。感兴趣的可以随时发邮件咨询。
-        </div>
-      </div>
-    </div>
-  </div>
+  // id 格式校验,能在 console 里直接发现拼错的 id
+  if (!/^\d{4}_[A-Za-z\-]+_[a-z]+$/.test(id)) {
+    console.warn(`Publication id 格式可疑: ${id}`);
+  }
 
-  <div class="section">
-    <h2 id="confpapers">Selected Publications
-      (<a href="https://scholar.google.com/citations?hl=zh-CN&user=45oFQD4AAAAJ&view_op=list_works&sortby=pubdate">Full list</a>)
-    </h2>
-    <p style="margin: 0 0 0.6em 0; color: #666; font-size: 12px;">
-      <span style="color: rgb(46, 117, 182); font-weight: bold;">*</span> denotes corresponding author
-    </p>
-    <div id="publications"></div>
-  </div>
+  return {
+    id, title, authors, correspondingAuthors, venue, highlight,
+    links,
+    image: `${base}/image.${imageExt}`,
+  };
+}
 
-  <div class="section">
-    <h2>Experience</h2>
-    <div id="experiences"></div>
-  </div>
+// 这些会议在 badge 上保留年份,其他(期刊等)删除年份
+// 想新增会议,在这里加一个字符串即可
+const KEEP_YEAR_VENUES = ['ICML', 'ICLR', 'NeurIPS', 'AAAI', 'COLING', 'ACL'];
 
-  <div class="section">
-    <h2>Awards and Honors</h2>
-    <div id="awards_and_honors"></div>
-  </div>
+// 文章信息列表
+const publications = [
+  makePub({
+    id: "2024_Arxiv_zhuqunxi",
+    title: "Governing equation discovery of a complex system from snapshots",
+    authors: "Qunxi Zhu, Bolin Zhao, Jingdong Zhang, Peiyang Li, Wei Lin",
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
+    venue: "arXiv:2410.16694",
+    highlight: 'A data-driven, simulation-free framework, called SpIDES, that discovers the governing equation of a complex system from snapshots.',
+    pdf: "https://arxiv.org/pdf/2410.16694",
+  }),
+  makePub({
+    id: "2026_Chaos_zhangjiaxuan",
+    title: "A general framework for neural delay differential equations with various delay types",
+    authors: "Jiaxuan Zhang, Qunxi Zhu, Wei Lin",
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
+    venue: "Chaos 2026",
+    highlight: 'A simulation-free training framework for learning neural delay differential equations with various delay types.',
+    pdf: "https://doi.org/10.1063/5.0325998",
+  }),
+  makePub({
+    id: "2026_ICML_luwanfeng",
+    title: "Interpretable Functional Koopman Learning with Non-Markovian Closure for Spatiotemporal Systems",
+    authors: "Wanfeng Lu, He Ma, Wei Lin, Qunxi Zhu",
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
+    venue: "ICML 2026 (Spotlight)",
+    highlight: 'A functional Koopman learning framework with non-Markovian memory correction for modeling spatiotemporal dynamics.',
+    pdf: "https://openreview.net/forum?id=lquDiBCgNJ",
+  }),
+  makePub({
+    id: "2026_DCDS-Intelligence_zhangjiaxuan",
+    title: "Extended Neural Delay Differential Equations",
+    authors: "Jiaxuan Zhang, Qunxi Zhu, Wei Lin",
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
+    venue: "Discrete and Continuous Dynamical Systems - Series I: Intelligence 2026",
+    highlight: "ENDDEs, taking delay, termination time, initial state and neural network parameters as trainable parameters.",
+    pdf: "https://www.aimsciences.org/article/doi/10.3934/dcdsi.A260103",
+  }),
+  makePub({
+    id: "2026_ICLR_zhaobolin",
+    title: "Delay Flow Matching",
+    authors: "Bolin Zhao, Xiaoyu Zhang, Yuting Dong, Xin Lu, Wei Lin, Qunxi Zhu",
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin", "Xin Lu"],
+    venue: "ICLR 2026",
+    highlight: "A generative framework with universal approximation guarantees that integrates Delay Differential Equations into Flow Matching.",
+    pdf: "https://openreview.net/forum?id=6lH1XblLpo",
+  }),
+  makePub({
+    id: "2025_ICML_zhangjingdong",
+    title: "Neural Event-Triggered Control with Optimal Scheduling",
+    authors: "Luan Yang, Jingdong Zhang, Qunxi Zhu, Wei Lin",
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
+    venue: "ICML 2025",
+    highlight: 'A framework that learns the event-triggered controller with minimal triggering times in resource-constrained scenarios.',
+    pdf: "https://arxiv.org/abs/2405.11406",
+    poster: "png",
+  }),
+  makePub({
+    id: "2024_PRE_zhangjingdong",
+    title: "Machine-learning-coined noise induces energy-saving synchrony",
+    authors: "Jingdong Zhang, Luan Yang, Qunxi Zhu, Celso Grebogi, Wei Lin",
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
+    venue: "Physical Review E, Letter 2024",
+    highlight: 'A theory-guided AI framework to design artificial noise capable of inducing energy-saving complete synchronization in any coupled nonlinear physical systems.',
+    pdf: "https://journals.aps.org/pre/accepted/e007fYd1C9d18f88e3e850c998d60e8a2e7f5ea97",
+  }),
+  makePub({
+    id: "2024_ICML_zhuqunxi",
+    title: "Switched Flow Matching: Eliminating Singularities via Switching ODEs",
+    authors: "Qunxi Zhu, Wei Lin",
+    correspondingAuthors: ["Qunxi Zhu"],
+    venue: "ICML 2024",
+    highlight: 'A versatile continuous-time generative model, SFM, that eliminates singularities encountered in the FM via switching the candidate ODEs.',
+    pdf: "https://arxiv.org/abs/2405.11605",
+    poster: "pdf",
+  }),
+  makePub({
+    id: "2024_ICML_zhangjingdong",
+    title: "FESSNC: Fast Exponentially Stable and Safe Neural Controller",
+    authors: "Jingdong Zhang, Luan Yang, Qunxi Zhu, Wei Lin",
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
+    venue: "ICML 2024",
+    highlight: 'A Fast learning stabilization controller with both rigorous exponential stability and safety guarantees.',
+    pdf: "https://arxiv.org/abs/2405.11406",
+    poster: "png",
+  }),
+  makePub({
+    id: "2024_ICML_lixin",
+    title: "From Fourier to Neural ODEs: Flow Matching for Modeling Complex Systems",
+    authors: "Xin Li, Jingdong Zhang, Qunxi Zhu, Chengli Zhao, Xue Zhang, Xiaojun Duan, Wei Lin",
+    correspondingAuthors: ["Qunxi Zhu", "Chengli Zhao"],
+    venue: "ICML 2024",
+    highlight: 'A simulation-free framework, Fourier Neural ODEs, that effectively trains Neural ODEs.',
+    pdf: "https://arxiv.org/abs/2405.11542",
+    poster: "pdf",
+  }),
+  makePub({
+    id: "2024_COLING_liushunyu",
+    title: "Let’s Rectify Step by Step: Improving Aspect-based Sentiment Analysis with Diffusion Models",
+    authors: "Shunyu Liu, Jie Zhou, Qunxi Zhu, Qin Chen, Qingchun Bai, Jun Xiao, Liang He",
+    correspondingAuthors: ["Jie Zhou"],
+    venue: "COLING 2024",
+    highlight: 'A diffusion-based model, DiffusionABSA, tailored for aspect-based sentiment analysis (an important task in Natural Language Processing).',
+    pdf: "https://arxiv.org/abs/2402.15289",
+  }),
+  makePub({
+    id: "2024_NC_lixin",
+    title: "Higher-order Granger reservoir computing: Simultaneously achieving scalable complex structures inference and accurate dynamics prediction",
+    authors: "Xin Li, Qunxi Zhu, Chengli Zhao, Xiaojun Duan, Bolin Zhao, Xue Zhang, Huanfei Ma, Jie Sun, Wei Lin",
+    correspondingAuthors: ["Qunxi Zhu", "Chengli Zhao", "Wei Lin"],
+    venue: "Nature Communications 2024",
+    highlight: 'Featured article in  “AI and machine learning” and “Applied physics and mathematics”.',
+    pdf: "https://www.nature.com/articles/s41467-024-46852-1",
+    extraLinks: [
+      { label: "techxplore", url: "https://techxplore.com/news/2024-03-lightweight-machine-method-scalable-inference.html" },
+    ],
+  }),
+  makePub({
+    id: "2024_PRR_zhangjingdong",
+    title: "Learning Hamiltonian neural Koopman operator and simultaneously sustaining and discovering conservation laws",
+    authors: "Jingdong Zhang, Qunxi Zhu, Wei Lin",
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
+    venue: "Physical Review Research 2024",
+    highlight: 'A mathematics and physics-inspired machine learning framework for reconstructing Hamiltonian systems from noisy/partially observed data.',
+    pdf: "https://link.aps.org/doi/10.1103/PhysRevResearch.6.L012031",
+    extraLinks: [
+      { label: "phys.org", url: "https://phys.org/news/2024-02-machine-predictor-capability-intricate-physical.html" },
+    ],
+  }),
+  makePub({
+    id: "2023_IJBC_jiboyun",
+    title: "Dimension reduction of collective attention networks",
+    authors: "Boyun Ji, Qunxi Zhu, Wei Lin",
+    correspondingAuthors: ["Qunxi Zhu"],
+    venue: "International Journal of Bifurcation and Chaos 2023",
+    highlight: 'Dimension reduction of a simple collective attention model for capturing the dynamics of coupled cultural products.',
+    pdf: "https://www.worldscientific.com/doi/10.1142/S0218127423501353",
+  }),
+  makePub({
+    id: "2023_Research_lixin",
+    title: "Tipping-point detection using reservoir computing",
+    authors: "Xin Li, Qunxi Zhu, Chengli Zhao, Xuzhe Qian, Xue Zhang, Xiaojun Duan, Wei Lin",
+    correspondingAuthors: ["Qunxi Zhu", "Chengli Zhao"],
+    venue: "Research 2023",
+    highlight: 'A tipping point detection method using the dynamical representation based on reservoir computing.',
+    pdf: "https://doi.org/10.34133/research.0174",
+  }),
+  makePub({
+    id: "2023_ACL_xionglimao",
+    title: "A Confidence-based Partial Label Learning Model for Crowd-Annotated Named Entity Recognition",
+    authors: "Limao Xiong, Jie Zhou, Qunxi Zhu, Xiao Wang, Yuanbin Wu, Qi Zhang, Tao Gui, Xuanjing Huang, Jin Ma, Ying Shan",
+    correspondingAuthors: ["Jie Zhou"],
+    venue: "ACL Findings 2023",
+    highlight: 'A Confidence-based Partial Label Learning method for crowd-annotated named entity recognition (an important task in Natural Language Processing).',
+    pdf: "https://arxiv.org/pdf/2305.12485",
+  }),
+  makePub({
+    id: "2023_Chaos_zhuqunxi",
+    title: "Leveraging neural differential equations and adaptive delayed feedback to detect unstable periodic orbits based on irregularly-sampled time series",
+    authors: "Qunxi Zhu, Xin Li, Wei Lin",
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
+    venue: "Chaos 2023",
+    highlight: 'Editor’s Pick.',
+    pdf: "https://doi.org/10.1063/5.0143839",
+  }),
+  makePub({
+    id: "2023_ICLR_zhangjingdong",
+    title: "SYNC: Safety-aware Neural Control for Stabilizing Stochastic Delay-Differential Equations",
+    authors: "Jingdong Zhang, Qunxi Zhu, Wei Yang, Wei Lin",
+    correspondingAuthors: ["Qunxi Zhu", "Wei Yang", "Wei Lin"],
+    venue: "ICLR 2023",
+    highlight: 'A new class of neural control polices for stabilizing stochastic delay-differential equations with safety guarantee.',
+    pdf: "https://openreview.net/forum?id=_8mS2NE-HXN",
+  }),
+  makePub({
+    id: "2022_NeurIPS_zhangjingdong",
+    title: "Neural Stochastic Control",
+    authors: "Jingdong Zhang, Qunxi Zhu, Wei Lin",
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
+    venue: "NeurIPS 2022",
+    highlight: 'Two novel frameworks of neural stochastic control to stabilize ODEs and SDEs.',
+    pdf: "https://openreview.net/forum?id=5wI7gNopMHW",
+  }),
+  makePub({
+    id: "2022_AAAI_zhuqunxi",
+    title: "Neural Piecewise-Constant Delay Differential Equations",
+    authors: "Qunxi Zhu, Yifei Shen, Dongsheng Li, Wei Lin",
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
+    venue: "AAAI 2022",
+    highlight: 'Multiple piecewise constant delays introduced to improve representational capability.',
+    pdf: "https://ojs.aaai.org/index.php/AAAI/article/view/20911/20670",
+  }),
+  makePub({
+    id: "2021_ICLR_zhuqunxi",
+    title: "Neural Delay Differential Equations",
+    authors: "Qunxi Zhu, Yao Guo, Wei Lin",
+    correspondingAuthors: ["Qunxi Zhu", "Yao Guo", "Wei Lin"],
+    venue: "ICLR 2021",
+    highlight: 'Overcome the limited representational capability of Neural ODEs.',
+    pdf: "https://openreview.net/forum?id=Q1jmmQz72M2",
+  }),
+  makePub({
+    id: "2020_TAC_zhuqunxi",
+    title: "Categorization problem on controllability of Boolean control networks",
+    authors: "Qunxi Zhu, Zuguang Gao, Yang Liu, Weihua Gui",
+    correspondingAuthors: ["Yang Liu"],
+    venue: "IEEE Transactions on Automatic Control 2020",
+    highlight: 'An algebraic graph theoretic approach, to classify the set of reachable or unreachable time steps (finite or infinite).',
+    pdf: "https://ieeexplore.ieee.org/document/9117189",
+  }),
+  makePub({
+    id: "2019_Chaos_zhuqunxi",
+    title: "Detecting unstable periodic orbits based only on time series: When adaptive delayed feedback control meets reservoir computing",
+    authors: "Qunxi Zhu, Huanfei Ma, Wei Lin",
+    correspondingAuthors: ["Wei Lin"],
+    venue: "Chaos 2019",
+    highlight: 'A data-driven and model-free method, connecting reservoir computing and adaptive delayed feedback control to detect unstable periodic orbits.',
+    pdf: "https://aip.scitation.org/doi/10.1063/1.5120867",
+  }),
+  makePub({
+    id: "2019_Chaos_panchiyu",
+    title: "Emergent dynamics of coordinated cells with time delays in a tissue",
+    authors: "Chiyu Pan, Yuanren Jiang, Qunxi Zhu, Wei Lin",
+    correspondingAuthors: ["Wei Lin"],
+    venue: "Chaos 2019",
+    highlight: 'Analysis of the emergence of tissue dynamics with time delays of diffusion.',
+    pdf: "https://pubs.aip.org/aip/cha/article/29/3/031101/567216",
+  }),
+  makePub({
+    id: "2019_SCL_zhuqunxi",
+    title: "Stabilizing Boolean networks by optimal event-triggered feedback control",
+    authors: "Qunxi Zhu, Wei Lin",
+    correspondingAuthors: ["Wei Lin"],
+    venue: "Systems & Control Letters 2019",
+    highlight: 'An optimal event-triggered feedback control for stabilizing Boolean networks by considering control time with control variability.',
+    pdf: "https://www.sciencedirect.com/science/article/pii/S0167691119300313",
+  }),
+  makePub({
+    id: "2019_TCNS_zhuqunxi",
+    title: "Controllability and observability of Boolean control networks via sampled-data control",
+    authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
+    correspondingAuthors: ["Yang Liu"],
+    venue: "IEEE Transactions on Control of Network Systems 2019",
+    highlight: 'Study on the controllability and observability of sampled-data Boolean control networks.',
+    pdf: "https://ieeexplore.ieee.org/abstract/document/8561222",
+  }),
+  makePub({
+    id: "2019_TAC_zhuqunxi",
+    title: "Further results on the controllability of Boolean control networks",
+    authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
+    correspondingAuthors: ["Yang Liu"],
+    venue: "IEEE Transactions on Automatic Control 2019",
+    highlight: 'An improved graphic method for controllability analysis of Boolean control networks.',
+    pdf: "https://ieeexplore.ieee.org/document/8350282",
+  }),
+  makePub({
+    id: "2018_SICON_zhuqunxi",
+    title: "On the optimal control of Boolean control networks",
+    authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
+    correspondingAuthors: ["Yang Liu"],
+    venue: "SIAM Journal on Control and Optimization 2018",
+    highlight: 'An optimal input-state transfer graph introduced for BCNs with cost in finite/infinite time horizon.',
+    pdf: "https://epubs.siam.org/doi/abs/10.1137/16M1070281",
+  }),
+  makePub({
+    id: "2018_SCIS_zhuqunxi",
+    title: "Observability of Boolean control networks",
+    authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
+    correspondingAuthors: ["Yang Liu"],
+    venue: "Science China Information Sciences 2018",
+    highlight: 'Necessary and sufficient conditions for the observability of BCNs.',
+    pdf: "http://engine.scichina.com/publisher/scp/journal/SCIS/doi/10.1007/s11432-017-9135-4",
+  }),
+  // ... 更多文章按相同格式添加,只需写 id / title / authors / correspondingAuthors / venue / highlight / pdf
+  // 路径会根据 id 自动拼出来。如有 poster 传 'png' 或 'pdf';有额外外链用 extraLinks 数组。
+];
 
-  <div class="section">
-    <h2>Review Services</h2>
-    <div class="paper">
-      <div class="paper-text">
-        Physica D: Nonlinear Phenomena<br>
-        Neural Networks<br>
-        Chaos Solitons &amp; Fractals<br>
-        International Journal of Bifurcation and Chaos (IJBC)<br>
-        Nonlinear Theory and Its Applications, IEICE<br>
-        Neural Information Processing Systems (NeurIPS 2022, 2023, 2024)<br>
-        International Conference on Machine Learning (ICML 2022, 2023, 2024)<br>
-        Workshop on Structured Probabilistic Inference &amp; Generative Modeling in ICML 2024<br>
-        Annual Meeting of the Association for Computational Linguistics (ACL 2024)<br>
-      </div>
-    </div>
-  </div>
+// 渲染文章信息到页面
+function renderPublications() {
+  const publicationsContainer = document.getElementById('publications');
 
-  <div class="section">
-    <h2><span class="light-red-box">New Journal</span> <a href="https://www.aimsciences.org/DCDS-I">DCDS-Intelligence</a></h2>
-    <div class="paper">
-      <div class="paper-text">
-        <ul>
-          <li><b>Aim and Scope</b>: Discrete and Continuous Dynamical Systems - Series I (DCDS-I): Intelligence (DCDS-Intelligence) is a peer-reviewed international journal dedicated to advancing interdisciplinary research at the intersection of Dynamical Systems (DS), Artificial Intelligence (AI), Machine Learning (ML), and Computational Neuroscience (CN). The journal publishes various types of high-quality contributions, including Perspectives, Letters, Articles, and Reviews. It both values theoretical and applied papers (provided they meaningfully advance the frontiers of DS, AI/ML, and CN research) and maintains high academic standards in originality, technical rigor, and scientific impact.</li>
-          <li><b>Acceptance Packet</b>: <a href="./resources/DCDS-Intelligence-Latex.zip">Download Latex template</a></li>
-          <li><b>Editors in Chief</b>: Prof. Wei Lin (Fudan University), Prof. Jianshe Yu (Guangzhou University)</li>
-          <li><b><a href="https://www.aimsciences.org/DCDS-I/editorialboard">Editorial Board</a></b> (Updating)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  publications.forEach(pub => {
+    const pubDiv = document.createElement('div');
+    pubDiv.classList.add('paper');
+    pubDiv.id = pub.id;
 
-  <div style="width:100%; max-width:800px; height:400px; margin:0 auto;">
-    <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=zMVkPNIzGm-E9i1cPI-9VlqTpG9lfvZ9kOVXUNNZtgw&cl=ffffff&w=a"></script>
-  </div>
+    //const img = document.createElement('img');
+    //img.classList.add('paper');
+    //img.src = pub.image;
+    //img.title = pub.title;
+    //pubDiv.appendChild(img);
+	
+	// 创建包含图片和标题的容器
+    const imageContainer = document.createElement('div');
+    imageContainer.classList.add('image-container');
 
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
+    const venueSpan = document.createElement('div');
+    venueSpan.classList.add('badge');
+    // 白名单里的会议保留年份(如 ICML 2024),其余删除年份(如 Chaos 2026 → Chaos)
+    const keepYear = KEEP_YEAR_VENUES.some(v => pub.venue.startsWith(v + ' '));
+    venueSpan.textContent = keepYear
+      ? pub.venue
+      : pub.venue.replace(/\s*\b\d{4}\b\s*/, ' ').trim();
+    imageContainer.appendChild(venueSpan);  // 将期刊名称添加到图片容器的顶部
 
-  <script src="script.js"></script>
-</body>
-</html>
+    const img = document.createElement('img');
+    img.classList.add('paper');
+    img.src = pub.image;
+    img.alt = pub.title;  // 添加 alt 属性提升无障碍性和SEO
+    imageContainer.appendChild(img);  // 将图片添加到容器
+
+    pubDiv.appendChild(imageContainer);
+	
+	
+	
+
+	const infoDiv = document.createElement('div');
+    infoDiv.classList.add('paper-text'); // 为文本部分添加类名
+	
+    const titleStrong = document.createElement('strong');
+    titleStrong.textContent = pub.title;
+    infoDiv.appendChild(titleStrong);
+
+    const authors = document.createElement('div');
+    //authors.innerHTML = `<br>${pub.authors}<br> in ${pub.venue}<br>`;
+	//authors.innerHTML = `${pub.authors}<br> in ${pub.venue}<br>`; //JavaScript 中在创建 HTML 元素时直接插入作者和期刊信息，避免段落标记：
+    //infoDiv.appendChild(authors);
+	const authorsList = pub.authors.split(', ').map(author => {
+      if (pub.correspondingAuthors.includes(author)) {
+        if (author === 'Qunxi Zhu') {
+          return `<span class="author-corresponding author-qunxi-zhu">${author}</span>`;
+        } else {
+          return `<span class="author-corresponding">${author}</span>`;
+        }
+      } else if (author === 'Qunxi Zhu') {
+        return `<span class="author-qunxi-zhu">${author}</span>`;
+      } else {
+        return author;
+      }
+    }).join(', ');
+    authors.innerHTML = `${authorsList}<br> in ${pub.venue}<br>`;
+    infoDiv.appendChild(authors);
+	//authors.innerHTML = `${authorsList}`;
+    //infoDiv.appendChild(authors);
+
+    //const venueSpan = document.createElement('span');
+    //venueSpan.classList.add('badge');
+    //venueSpan.textContent = `<br> in ${pub.venue}<br>`;
+    //authors.appendChild(venueSpan);
+
+    pub.links.forEach(link => {
+      const anchor = document.createElement('a');
+      anchor.href = link.url;
+      anchor.textContent = link.label;
+      infoDiv.appendChild(document.createTextNode(" [ "));
+      infoDiv.appendChild(anchor);
+      infoDiv.appendChild(document.createTextNode(" ] "));
+    });
+	
+	const highlight = document.createElement('div');
+    highlight.classList.add('highlight');
+    highlight.textContent = pub.highlight;
+    infoDiv.appendChild(highlight);
+
+    pubDiv.appendChild(infoDiv);
+    publicationsContainer.appendChild(pubDiv);
+
+    const spannerDiv = document.createElement('div');
+    spannerDiv.classList.add('spanner');
+    pubDiv.appendChild(spannerDiv);
+  });
+}
+
+// 当页面加载完毕时，渲染文章信息
+document.addEventListener('DOMContentLoaded', () => {
+  console.log("Document loaded. Rendering publications...");
+  renderPublications();
+});
+
+
+
+
+
+
+
+
+// Define the experience items
+const experiences = [
+  {
+    date: '2024.7 – Present',
+    title: 'Young Principal Investigator',
+    institution: 'Research Institute of Intelligent Complex Systems, Fudan University, China'
+  },
+  {
+    date: '2021.6 – 2024.06',
+    title: 'Postdoctoral Research Fellow',
+    institution: 'Research Institute of Intelligent Complex Systems, Fudan University, China',
+    details: 'work with <a href="https://faculty.fudan.edu.cn/wlin/zh_CN/zdylm/652034/list/index.htm">Wei Lin</a>'
+  },
+  {
+    date: '2020.9 – 2021.2',
+    title: 'Research Intern',
+    institution: 'Microsoft Research Asia (MSRA)',
+    details: 'hosted by <a href="http://recmind.cn/">Dongsheng Li</a>'
+  },
+  {
+    date: '2019.1 - 2019.12',
+    title: 'Visiting Student',
+    institution: 'Massachusetts General Hospital and Harvard Medical School, Harvard University, US (China Scholarship Council)',
+    details: 'hosted by <a href="https://sites.google.com/view/the-ge-lab/home">Tian Ge</a>'
+  },
+  {
+    date: '2016.9 – 2021.6',
+    title: 'Ph.D. Student',
+    institution: 'Applied Mathematics, Fudan University, China',
+    details: 'advised by <a href="https://faculty.fudan.edu.cn/wlin/zh_CN/zdylm/652034/list/index.htm">Wei Lin</a>'
+  },
+  {
+    date: '2012.9 - 2016.6',
+    title: 'B.Sc. Student',
+    institution: 'Mathematics and Applied Mathematics, Zhejiang Normal University, China'
+  }
+];
+
+function renderExperiences() {
+  // Find the experiences div
+  const experiencesDiv = document.getElementById('experiences');
+  
+  // Create the paper div
+  const paperDiv = document.createElement('div');
+  paperDiv.className = 'paper';
+
+  // Create the ul element
+  const list = document.createElement('ul');
+  list.classList.add('paper-text'); // 为文本部分添加类名
+  
+  // Append experience items to the list
+  experiences.forEach(exp => {
+    const listItem = document.createElement('li');
+    if (exp.details) {
+      listItem.innerHTML = `${exp.date}, ${exp.title}, ${exp.institution}, ${exp.details}.`;
+    } else {
+      listItem.innerHTML = `${exp.date}, ${exp.title}, ${exp.institution}.`;
+    }
+    
+    list.appendChild(listItem);
+  });
+
+  // Append the list to the paper div
+  paperDiv.appendChild(list);
+
+  // Append the paper div to the experiences div
+  experiencesDiv.appendChild(paperDiv);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderExperiences();
+});
+
+
+
+
+
+
+
+// Define the awards and honors items
+const awards_and_honors = [
+  {
+    date: '2021',
+    details: 'Super postdoctoral fellow in Shanghai, FDU'
+  },
+  {
+    date: '2021',
+    details: 'Outstanding graduates in Shanghai, FDU'
+  },
+  {
+    date: '2020',
+    details: 'National Graduate (Ph.D.) Scholarship, FDU'
+  },
+  {
+    date: '2019',
+	award: 'Final rank: 2st',
+    details: '2019 Zhejiang Lab Cup Global AI Competition: Opinion Mining For E-Commerce Reviews (awarded 100,000 rmb)'
+  },
+  {
+    date: '2019',
+    award: 'Final rank: 1st',
+    details: 'The 5th Baidu & XJTU Big Data Contest The First IKCEST “The Belt and Road” International Big Data Contest (awarded 50,000 rmb)'
+  },
+  {
+    date: '2018',
+    details: 'National Graduate (Ph.D.) Scholarship, FDU'
+  },
+  {
+    date: '2017',
+    details: 'National Graduate Scholarship, FDU'
+  },
+  {
+    date: '2016',
+	award: 'Second prize',
+    details: 'National Graduate Mathematical Modeling Contest'
+  },
+  {
+    date: '2015',
+	award: 'Silver Medal',
+    details: 'ACM-ICPC Asia Beijing Regional Contest'
+  },
+  {
+    date: '2014 and 2015',
+	award: 'Gold Medal',
+    details: 'Zhejiang Provincial University Programming Contest'
+  },
+  {
+    date: '2014',
+	award: 'Second prize',
+    details: 'National Undergraduate Mathematical Modeling Contest'
+  },
+  {
+    date: '2014 (Rank: 2nd/216)',
+    details: 'National Undergraduate Scholarship, ZJNU'
+  }
+];
+
+function renderAwards_and_Honors() {
+  // Find the experiences div
+  const awards_and_honorsDiv = document.getElementById('awards_and_honors');
+  
+  // Create the paper div
+  const paperDiv = document.createElement('div');
+  paperDiv.className = 'paper';
+
+  // Create the ul element
+  const list = document.createElement('ul');
+  list.classList.add('paper-text'); // 为文本部分添加类名
+  
+  // Append awards_and_honors items to the list
+  awards_and_honors.forEach(exp => {
+    const listItem = document.createElement('li');
+    if (exp.award) {
+      listItem.innerHTML = `<b>${exp.award}</b>, ${exp.details}, ${exp.date}.`;
+    } else {
+      listItem.innerHTML = `${exp.details}, ${exp.date}.`;
+    }
+    
+    list.appendChild(listItem);
+  });
+
+  // Append the list to the paper div
+  paperDiv.appendChild(list);
+
+  // Append the paper div to the experiences div
+  awards_and_honorsDiv.appendChild(paperDiv);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderAwards_and_Honors();
+});
