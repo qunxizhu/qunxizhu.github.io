@@ -14,392 +14,314 @@
 ga('create', 'UA-96229663-1', 'D-X-Y.github.io');
 ga('send', 'pageview');
 
+// 工厂函数：根据 id 自动拼接 resources 路径，避免每条文章都重复手写
+// 参数说明:
+//   id, title, authors, correspondingAuthors, venue, highlight: 同原结构
+//   pdf:        PDF 的外部链接(如 arxiv / 期刊官网)
+//   poster:     'png' 或 'pdf',表示 ./resources/{id}/poster.{ext} 的扩展名;不传则无 poster
+//   extraLinks: 额外的链接,如 techxplore / phys.org 等,格式 [{label, url}, ...]
+//   imageExt:   图片扩展名,默认 'png'
+function makePub({
+  id, title, authors, correspondingAuthors, venue, highlight,
+  pdf,
+  poster,
+  extraLinks = [],
+  imageExt = 'png',
+}) {
+  const base = `./resources/${id}`;
+  const links = [];
+  if (pdf)    links.push({ label: 'PDF',    url: pdf });
+              links.push({ label: 'BibTex', url: `${base}/bib.txt` });
+  if (poster) links.push({ label: 'Poster', url: `${base}/poster.${poster}` });
+  links.push(...extraLinks);
+
+  // id 格式校验,能在 console 里直接发现拼错的 id
+  if (!/^\d{4}_[A-Za-z\-]+_[a-z]+$/.test(id)) {
+    console.warn(`Publication id 格式可疑: ${id}`);
+  }
+
+  return {
+    id, title, authors, correspondingAuthors, venue, highlight,
+    links,
+    image: `${base}/image.${imageExt}`,
+  };
+}
+
 // 文章信息列表
 const publications = [
-  {
+  makePub({
     id: "2024_Arxiv_zhuqunxi",
     title: "Governing equation discovery of a complex system from snapshots",
     authors: "Qunxi Zhu, Bolin Zhao, Jingdong Zhang, Peiyang Li, Wei Lin",
-	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
     venue: "arXiv:2410.16694",
-	highlight: 'A data-driven, simulation-free framework, called SpIDES, that discovers the governing equation of a complex system from snapshots.',
-    links: [
-      { label: "PDF", url: "https://arxiv.org/pdf/2410.16694" },
-      { label: "BibTex", url: "./resources/2024_Arxiv_zhuqunxi/bib.txt" }
-    ],
-    image: "./resources/2024_Arxiv_zhuqunxi/image.png"
-  },
-  {
+    highlight: 'A data-driven, simulation-free framework, called SpIDES, that discovers the governing equation of a complex system from snapshots.',
+    pdf: "https://arxiv.org/pdf/2410.16694",
+  }),
+  makePub({
     id: "2026_Chaos_zhangjiaxuan",
     title: "A general framework for neural delay differential equations with various delay types",
     authors: "Jiaxuan Zhang, Qunxi Zhu, Wei Lin",
-	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
     venue: "Chaos 2026",
-	highlight: 'A simulation-free training framework for learning neural delay differential equations with various delay types.',
-    links: [
-      { label: "PDF", url: "https://doi.org/10.1063/5.0325998" },
-      { label: "BibTex", url: "./resources/2026_Chaos_zhangjiaxuan/bib.txt" }
-    ],
-    image: "./resources/2026_Chaos_zhangjiaxuan/image.png"
-  },
-  {
+    highlight: 'A simulation-free training framework for learning neural delay differential equations with various delay types.',
+    pdf: "https://doi.org/10.1063/5.0325998",
+  }),
+  makePub({
     id: "2026_ICML_luwanfeng",
     title: "Interpretable Functional Koopman Learning with Non-Markovian Closure for Spatiotemporal Systems",
     authors: "Wanfeng Lu, He Ma, Wei Lin, Qunxi Zhu",
-	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
     venue: "ICML 2026 (Spotlight)",
-	highlight: 'A functional Koopman learning framework with non-Markovian memory correction for modeling spatiotemporal dynamics.',
-    links: [
-      { label: "PDF", url: "https://openreview.net/forum?id=lquDiBCgNJ" },
-      { label: "BibTex", url: "./resources/2026_ICML_luwanfeng/bib.txt" }
-    ],
-    image: "./resources/2026_ICML_luwanfeng/image.png"
-  },
-  {
+    highlight: 'A functional Koopman learning framework with non-Markovian memory correction for modeling spatiotemporal dynamics.',
+    pdf: "https://openreview.net/forum?id=lquDiBCgNJ",
+  }),
+  makePub({
     id: "2026_DCDS-Intelligence_zhangjiaxuan",
     title: "Extended Neural Delay Differential Equations",
     authors: "Jiaxuan Zhang, Qunxi Zhu, Wei Lin",
-	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
     venue: "Discrete and Continuous Dynamical Systems - Series I: Intelligence 2026",
-	highlight: "ENDDEs, taking delay, termination time, initial state and neural network parameters as trainable parameters.",
-    links: [
-      { label: "PDF", url: "https://www.aimsciences.org/article/doi/10.3934/dcdsi.A260103" },
-      { label: "BibTex", url: "./resources/2026_DCDS-Intelligence_zhangjiaxuan/bib.txt" }
-    ],
-    image: "./resources/2026_DCDS-Intelligence_zhangjiaxuan/image.png"
-  },
-  {
+    highlight: "ENDDEs, taking delay, termination time, initial state and neural network parameters as trainable parameters.",
+    pdf: "https://www.aimsciences.org/article/doi/10.3934/dcdsi.A260103",
+  }),
+  makePub({
     id: "2026_ICLR_zhaobolin",
     title: "Delay Flow Matching",
     authors: "Bolin Zhao, Xiaoyu Zhang, Yuting Dong, Xin Lu, Wei Lin, Qunxi Zhu",
-	correspondingAuthors: ["Qunxi Zhu", "Wei Lin", "Xin Lu"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin", "Xin Lu"],
     venue: "ICLR 2026",
-	highlight: "A generative framework with universal approximation guarantees that integrates Delay Differential Equations into Flow Matching.",
-    links: [
-      { label: "PDF", url: "https://openreview.net/forum?id=6lH1XblLpo" },
-      { label: "BibTex", url: "./resources/2026_ICLR_zhaobolin/bib.txt" }
-    ],
-    image: "./resources/2026_ICLR_zhaobolin/image.png"
-  },
-  {
+    highlight: "A generative framework with universal approximation guarantees that integrates Delay Differential Equations into Flow Matching.",
+    pdf: "https://openreview.net/forum?id=6lH1XblLpo",
+  }),
+  makePub({
     id: "2025_ICML_zhangjingdong",
     title: "Neural Event-Triggered Control with Optimal Scheduling",
     authors: "Luan Yang, Jingdong Zhang, Qunxi Zhu, Wei Lin",
-	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
     venue: "ICML 2025",
-	highlight: 'A framework that learns the event-triggered controller with minimal triggering times in resource-constrained scenarios.',
-    links: [
-      { label: "PDF", url: "https://arxiv.org/abs/2405.11406" },
-      { label: "BibTex", url: "./resources/2025_ICML_zhangjingdong/bib.txt" },
-      { label: "Poster", url: "./resources/2025_ICML_zhangjingdong/poster.png" }
-    ],
-    image: "./resources/2025_ICML_zhangjingdong/image.png"
-  },
-  {
+    highlight: 'A framework that learns the event-triggered controller with minimal triggering times in resource-constrained scenarios.',
+    pdf: "https://arxiv.org/abs/2405.11406",
+    poster: "png",
+  }),
+  makePub({
     id: "2024_PRE_zhangjingdong",
     title: "Machine-learning-coined noise induces energy-saving synchrony",
     authors: "Jingdong Zhang, Luan Yang, Qunxi Zhu, Celso Grebogi, Wei Lin",
-	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
     venue: "Physical Review E, Letter 2024",
-	highlight: 'A theory-guided AI framework to design artificial noise capable of inducing energy-saving complete synchronization in any coupled nonlinear physical systems.',
-    links: [
-      { label: "PDF", url: "https://journals.aps.org/pre/accepted/e007fYd1C9d18f88e3e850c998d60e8a2e7f5ea97" },
-      { label: "BibTex", url: "./resources/2024_PRE_zhangjingdong/bib.txt" }
-    ],
-    image: "./resources/2024_PRE_zhangjingdong/image.png"
-  },
-  {
+    highlight: 'A theory-guided AI framework to design artificial noise capable of inducing energy-saving complete synchronization in any coupled nonlinear physical systems.',
+    pdf: "https://journals.aps.org/pre/accepted/e007fYd1C9d18f88e3e850c998d60e8a2e7f5ea97",
+  }),
+  makePub({
     id: "2024_ICML_zhuqunxi",
     title: "Switched Flow Matching: Eliminating Singularities via Switching ODEs",
     authors: "Qunxi Zhu, Wei Lin",
-	correspondingAuthors: ["Qunxi Zhu"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu"],
     venue: "ICML 2024",
-	highlight: 'A versatile continuous-time generative model, SFM, that eliminates singularities encountered in the FM via switching the candidate ODEs.',
-    links: [
-      { label: "PDF", url: "https://arxiv.org/abs/2405.11605" },
-      { label: "BibTex", url: "./resources/2024_ICML_zhuqunxi/bib.txt" },
-      { label: "Poster", url: "./resources/2024_ICML_zhuqunxi/poster.pdf" }
-    ],
-    image: "./resources/2024_ICML_zhuqunxi/image.png"
-  },
-  {
+    highlight: 'A versatile continuous-time generative model, SFM, that eliminates singularities encountered in the FM via switching the candidate ODEs.',
+    pdf: "https://arxiv.org/abs/2405.11605",
+    poster: "pdf",
+  }),
+  makePub({
     id: "2024_ICML_zhangjingdong",
     title: "FESSNC: Fast Exponentially Stable and Safe Neural Controller",
     authors: "Jingdong Zhang, Luan Yang, Qunxi Zhu, Wei Lin",
-	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
     venue: "ICML 2024",
-	highlight: 'A Fast learning stabilization controller with both rigorous exponential stability and safety guarantees.',
-    links: [
-      { label: "PDF", url: "https://arxiv.org/abs/2405.11406" },
-      { label: "BibTex", url: "./resources/2024_ICML_zhangjingdong/bib.txt" },
-      { label: "Poster", url: "./resources/2024_ICML_zhangjingdong/poster.png" }
-    ],
-    image: "./resources/2024_ICML_zhangjingdong/image.png"
-  },
-  {
+    highlight: 'A Fast learning stabilization controller with both rigorous exponential stability and safety guarantees.',
+    pdf: "https://arxiv.org/abs/2405.11406",
+    poster: "png",
+  }),
+  makePub({
     id: "2024_ICML_lixin",
     title: "From Fourier to Neural ODEs: Flow Matching for Modeling Complex Systems",
     authors: "Xin Li, Jingdong Zhang, Qunxi Zhu, Chengli Zhao, Xue Zhang, Xiaojun Duan, Wei Lin",
-	correspondingAuthors: ["Qunxi Zhu", "Chengli Zhao"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu", "Chengli Zhao"],
     venue: "ICML 2024",
-	highlight: 'A simulation-free framework, Fourier Neural ODEs, that effectively trains Neural ODEs.',
-    links: [
-      { label: "PDF", url: "https://arxiv.org/abs/2405.11542" },
-      { label: "BibTex", url: "./resources/2024_ICML_lixin/bib.txt" },
-      { label: "Poster", url: "./resources/2024_ICML_lixin/poster.pdf" }
-    ],
-    image: "./resources/2024_ICML_lixin/image.png"
-  },
-  {
+    highlight: 'A simulation-free framework, Fourier Neural ODEs, that effectively trains Neural ODEs.',
+    pdf: "https://arxiv.org/abs/2405.11542",
+    poster: "pdf",
+  }),
+  makePub({
     id: "2024_COLING_liushunyu",
     title: "Let’s Rectify Step by Step: Improving Aspect-based Sentiment Analysis with Diffusion Models",
     authors: "Shunyu Liu, Jie Zhou, Qunxi Zhu, Qin Chen, Qingchun Bai, Jun Xiao, Liang He",
-	correspondingAuthors: ["Jie Zhou"], // 添加通讯作者列表
+    correspondingAuthors: ["Jie Zhou"],
     venue: "COLING 2024",
-	highlight: 'A diffusion-based model, DiffusionABSA, tailored for aspect-based sentiment analysis (an important task in Natural Language Processing).',
-    links: [
-      { label: "PDF", url: "https://arxiv.org/abs/2402.15289" },
-      { label: "BibTex", url: "./resources/2024_COLING_liushunyu/bib.txt" }
-    ],
-    image: "./resources/2024_COLING_liushunyu/image.png"
-  },
-  {
+    highlight: 'A diffusion-based model, DiffusionABSA, tailored for aspect-based sentiment analysis (an important task in Natural Language Processing).',
+    pdf: "https://arxiv.org/abs/2402.15289",
+  }),
+  makePub({
     id: "2024_NC_lixin",
     title: "Higher-order Granger reservoir computing: Simultaneously achieving scalable complex structures inference and accurate dynamics prediction",
     authors: "Xin Li, Qunxi Zhu, Chengli Zhao, Xiaojun Duan, Bolin Zhao, Xue Zhang, Huanfei Ma, Jie Sun, Wei Lin",
-	correspondingAuthors: ["Qunxi Zhu", "Chengli Zhao", "Wei Lin"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu", "Chengli Zhao", "Wei Lin"],
     venue: "Nature Communications 2024",
-	highlight: 'Featured article in  “AI and machine learning” and “Applied physics and mathematics”.',
-    links: [
-      { label: "PDF", url: "https://www.nature.com/articles/s41467-024-46852-1" },
-      { label: "BibTex", url: "./resources/2024_NC_lixin/bib.txt" },
-      { label: "techxplore", url: "https://techxplore.com/news/2024-03-lightweight-machine-method-scalable-inference.html" }
+    highlight: 'Featured article in  “AI and machine learning” and “Applied physics and mathematics”.',
+    pdf: "https://www.nature.com/articles/s41467-024-46852-1",
+    extraLinks: [
+      { label: "techxplore", url: "https://techxplore.com/news/2024-03-lightweight-machine-method-scalable-inference.html" },
     ],
-    image: "./resources/2024_NC_lixin/image.png"
-  },
-  {
+  }),
+  makePub({
     id: "2024_PRR_zhangjingdong",
     title: "Learning Hamiltonian neural Koopman operator and simultaneously sustaining and discovering conservation laws",
     authors: "Jingdong Zhang, Qunxi Zhu, Wei Lin",
-	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
     venue: "Physical Review Research 2024",
-	highlight: 'A mathematics and physics-inspired machine learning framework for reconstructing Hamiltonian systems from noisy/partially observed data.',
-    links: [
-      { label: "PDF", url: "https://link.aps.org/doi/10.1103/PhysRevResearch.6.L012031" },
-      { label: "BibTex", url: "./resources/2024_PRR_zhangjingdong/bib.txt" },
-      { label: "phys.org", url: "https://phys.org/news/2024-02-machine-predictor-capability-intricate-physical.html" }
+    highlight: 'A mathematics and physics-inspired machine learning framework for reconstructing Hamiltonian systems from noisy/partially observed data.',
+    pdf: "https://link.aps.org/doi/10.1103/PhysRevResearch.6.L012031",
+    extraLinks: [
+      { label: "phys.org", url: "https://phys.org/news/2024-02-machine-predictor-capability-intricate-physical.html" },
     ],
-    image: "./resources/2024_PRR_zhangjingdong/image.png"
-  },
-  {
+  }),
+  makePub({
     id: "2023_IJBC_jiboyun",
     title: "Dimension reduction of collective attention networks",
     authors: "Boyun Ji, Qunxi Zhu, Wei Lin",
-	correspondingAuthors: ["Qunxi Zhu"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu"],
     venue: "International Journal of Bifurcation and Chaos 2023",
-	highlight: 'Dimension reduction of a simple collective attention model for capturing the dynamics of coupled cultural products.',
-    links: [
-      { label: "PDF", url: "https://www.worldscientific.com/doi/10.1142/S0218127423501353" },
-      { label: "BibTex", url: "./resources/2023_IJBC_jiboyun/bib.txt" }
-    ],
-    image: "./resources/2023_IJBC_jiboyun/image.png"
-  },
-  {
+    highlight: 'Dimension reduction of a simple collective attention model for capturing the dynamics of coupled cultural products.',
+    pdf: "https://www.worldscientific.com/doi/10.1142/S0218127423501353",
+  }),
+  makePub({
     id: "2023_Research_lixin",
     title: "Tipping-point detection using reservoir computing",
     authors: "Xin Li, Qunxi Zhu, Chengli Zhao, Xuzhe Qian, Xue Zhang, Xiaojun Duan, Wei Lin",
-	correspondingAuthors: ["Qunxi Zhu", "Chengli Zhao"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu", "Chengli Zhao"],
     venue: "Research 2023",
-	highlight: 'A tipping point detection method using the dynamical representation based on reservoir computing.',
-    links: [
-      { label: "PDF", url: "https://doi.org/10.34133/research.0174" },
-      { label: "BibTex", url: "./resources/2023_Research_lixin/bib.txt" }
-    ],
-    image: "./resources/2023_Research_lixin/image.png"
-  },
-  {
+    highlight: 'A tipping point detection method using the dynamical representation based on reservoir computing.',
+    pdf: "https://doi.org/10.34133/research.0174",
+  }),
+  makePub({
     id: "2023_ACL_xionglimao",
     title: "A Confidence-based Partial Label Learning Model for Crowd-Annotated Named Entity Recognition",
     authors: "Limao Xiong, Jie Zhou, Qunxi Zhu, Xiao Wang, Yuanbin Wu, Qi Zhang, Tao Gui, Xuanjing Huang, Jin Ma, Ying Shan",
-	correspondingAuthors: ["Jie Zhou"], // 添加通讯作者列表
+    correspondingAuthors: ["Jie Zhou"],
     venue: "ACL Findings 2023",
-	highlight: 'A Confidence-based Partial Label Learning method for crowd-annotated named entity recognition (an important task in Natural Language Processing).',
-    links: [
-      { label: "PDF", url: "https://arxiv.org/pdf/2305.12485" },
-      { label: "BibTex", url: "./resources/2023_ACL_xionglimao/bib.txt" }
-    ],
-    image: "./resources/2023_ACL_xionglimao/image.png"
-  },
-  {
+    highlight: 'A Confidence-based Partial Label Learning method for crowd-annotated named entity recognition (an important task in Natural Language Processing).',
+    pdf: "https://arxiv.org/pdf/2305.12485",
+  }),
+  makePub({
     id: "2023_Chaos_zhuqunxi",
     title: "Leveraging neural differential equations and adaptive delayed feedback to detect unstable periodic orbits based on irregularly-sampled time series",
     authors: "Qunxi Zhu, Xin Li, Wei Lin",
-	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
     venue: "Chaos 2023",
-	highlight: 'Editor’s Pick.',
-    links: [
-      { label: "PDF", url: "https://doi.org/10.1063/5.0143839" },
-      { label: "BibTex", url: "./resources/2023_Chaos_zhuqunxi/bib.txt" }
-    ],
-    image: "./resources/2023_Chaos_zhuqunxi/image.png"
-  },
-  {
+    highlight: 'Editor’s Pick.',
+    pdf: "https://doi.org/10.1063/5.0143839",
+  }),
+  makePub({
     id: "2023_ICLR_zhangjingdong",
     title: "SYNC: Safety-aware Neural Control for Stabilizing Stochastic Delay-Differential Equations",
     authors: "Jingdong Zhang, Qunxi Zhu, Wei Yang, Wei Lin",
-	correspondingAuthors: ["Qunxi Zhu", "Wei Yang", "Wei Lin"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu", "Wei Yang", "Wei Lin"],
     venue: "ICLR 2023",
-	highlight: 'A new class of neural control polices for stabilizing stochastic delay-differential equations with safety guarantee.',
-    links: [
-      { label: "PDF", url: "https://openreview.net/forum?id=_8mS2NE-HXN" },
-      { label: "BibTex", url: "./resources/2023_ICLR_zhangjingdong/bib.txt" }
-    ],
-    image: "./resources/2023_ICLR_zhangjingdong/image.png"
-  },
-  {
+    highlight: 'A new class of neural control polices for stabilizing stochastic delay-differential equations with safety guarantee.',
+    pdf: "https://openreview.net/forum?id=_8mS2NE-HXN",
+  }),
+  makePub({
     id: "2022_NeurIPS_zhangjingdong",
     title: "Neural Stochastic Control",
     authors: "Jingdong Zhang, Qunxi Zhu, Wei Lin",
-	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
     venue: "NeurIPS 2022",
-	highlight: 'Two novel frameworks of neural stochastic control to stabilize ODEs and SDEs.',
-    links: [
-      { label: "PDF", url: "https://openreview.net/forum?id=5wI7gNopMHW" },
-      { label: "BibTex", url: "./resources/2022_NeurIPS_zhangjingdong/bib.txt" }
-    ],
-    image: "./resources/2022_NeurIPS_zhangjingdong/image.png"
-  },
-  {
+    highlight: 'Two novel frameworks of neural stochastic control to stabilize ODEs and SDEs.',
+    pdf: "https://openreview.net/forum?id=5wI7gNopMHW",
+  }),
+  makePub({
     id: "2022_AAAI_zhuqunxi",
     title: "Neural Piecewise-Constant Delay Differential Equations",
     authors: "Qunxi Zhu, Yifei Shen, Dongsheng Li, Wei Lin",
-	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu", "Wei Lin"],
     venue: "AAAI 2022",
-	highlight: 'Multiple piecewise constant delays introduced to improve representational capability.',
-    links: [
-      { label: "PDF", url: "https://ojs.aaai.org/index.php/AAAI/article/view/20911/20670" },
-      { label: "BibTex", url: "./resources/2022_AAAI_zhuqunxi/bib.txt" }
-    ],
-    image: "./resources/2022_AAAI_zhuqunxi/image.png"
-  },
-  {
+    highlight: 'Multiple piecewise constant delays introduced to improve representational capability.',
+    pdf: "https://ojs.aaai.org/index.php/AAAI/article/view/20911/20670",
+  }),
+  makePub({
     id: "2021_ICLR_zhuqunxi",
     title: "Neural Delay Differential Equations",
     authors: "Qunxi Zhu, Yao Guo, Wei Lin",
-	correspondingAuthors: ["Qunxi Zhu", "Yao Guo", "Wei Lin"], // 添加通讯作者列表
+    correspondingAuthors: ["Qunxi Zhu", "Yao Guo", "Wei Lin"],
     venue: "ICLR 2021",
-	highlight: 'Overcome the limited representational capability of Neural ODEs.',
-    links: [
-      { label: "PDF", url: "https://openreview.net/forum?id=Q1jmmQz72M2" },
-      { label: "BibTex", url: "./resources/2021_ICLR_zhuqunxi/bib.txt" }
-    ],
-    image: "./resources/2021_ICLR_zhuqunxi/image.png"
-  },
-  {
+    highlight: 'Overcome the limited representational capability of Neural ODEs.',
+    pdf: "https://openreview.net/forum?id=Q1jmmQz72M2",
+  }),
+  makePub({
     id: "2020_TAC_zhuqunxi",
     title: "Categorization problem on controllability of Boolean control networks",
     authors: "Qunxi Zhu, Zuguang Gao, Yang Liu, Weihua Gui",
-	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
+    correspondingAuthors: ["Yang Liu"],
     venue: "IEEE Transactions on Automatic Control 2020",
-	highlight: 'An algebraic graph theoretic approach, to classify the set of reachable or unreachable time steps (finite or infinite).',
-    links: [
-      { label: "PDF", url: "https://ieeexplore.ieee.org/document/9117189" },
-      { label: "BibTex", url: "./resources/2020_TAC_zhuqunxi/bib.txt" }
-    ],
-    image: "./resources/2020_TAC_zhuqunxi/image.png"
-  },
-  {
+    highlight: 'An algebraic graph theoretic approach, to classify the set of reachable or unreachable time steps (finite or infinite).',
+    pdf: "https://ieeexplore.ieee.org/document/9117189",
+  }),
+  makePub({
     id: "2019_Chaos_zhuqunxi",
     title: "Detecting unstable periodic orbits based only on time series: When adaptive delayed feedback control meets reservoir computing",
     authors: "Qunxi Zhu, Huanfei Ma, Wei Lin",
-	correspondingAuthors: ["Wei Lin"], // 添加通讯作者列表
+    correspondingAuthors: ["Wei Lin"],
     venue: "Chaos 2019",
-	highlight: 'A data-driven and model-free method, connecting reservoir computing and adaptive delayed feedback control to detect unstable periodic orbits.',
-    links: [
-      { label: "PDF", url: "https://aip.scitation.org/doi/10.1063/1.5120867" },
-      { label: "BibTex", url: "./resources/2019_Chaos_zhuqunxi/bib.txt" }
-    ],
-    image: "./resources/2019_Chaos_zhuqunxi/image.png"
-  },
-  {
+    highlight: 'A data-driven and model-free method, connecting reservoir computing and adaptive delayed feedback control to detect unstable periodic orbits.',
+    pdf: "https://aip.scitation.org/doi/10.1063/1.5120867",
+  }),
+  makePub({
     id: "2019_Chaos_panchiyu",
     title: "Emergent dynamics of coordinated cells with time delays in a tissue",
     authors: "Chiyu Pan, Yuanren Jiang, Qunxi Zhu, Wei Lin",
-	correspondingAuthors: ["Wei Lin"], // 添加通讯作者列表
+    correspondingAuthors: ["Wei Lin"],
     venue: "Chaos 2019",
-	highlight: 'Analysis of the emergence of tissue dynamics with time delays of diffusion.',
-    links: [
-      { label: "PDF", url: "https://pubs.aip.org/aip/cha/article/29/3/031101/567216" },
-      { label: "BibTex", url: "./resources/2019_Chaos_panchiyu/bib.txt" }
-    ],
-    image: "./resources/2019_Chaos_panchiyu/image.png"
-  },
-  {
+    highlight: 'Analysis of the emergence of tissue dynamics with time delays of diffusion.',
+    pdf: "https://pubs.aip.org/aip/cha/article/29/3/031101/567216",
+  }),
+  makePub({
     id: "2019_SCL_zhuqunxi",
     title: "Stabilizing Boolean networks by optimal event-triggered feedback control",
     authors: "Qunxi Zhu, Wei Lin",
-	correspondingAuthors: ["Wei Lin"], // 添加通讯作者列表
+    correspondingAuthors: ["Wei Lin"],
     venue: "Systems & Control Letters 2019",
-	highlight: 'An optimal event-triggered feedback control for stabilizing Boolean networks by considering control time with control variability.',
-    links: [
-      { label: "PDF", url: "https://www.sciencedirect.com/science/article/pii/S0167691119300313" },
-      { label: "BibTex", url: "./resources/2019_SCL_zhuqunxi/bib.txt" }
-    ],
-    image: "./resources/2019_SCL_zhuqunxi/image.png"
-  },
-  {
+    highlight: 'An optimal event-triggered feedback control for stabilizing Boolean networks by considering control time with control variability.',
+    pdf: "https://www.sciencedirect.com/science/article/pii/S0167691119300313",
+  }),
+  makePub({
     id: "2019_TCNS_zhuqunxi",
     title: "Controllability and observability of Boolean control networks via sampled-data control",
     authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
-	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
+    correspondingAuthors: ["Yang Liu"],
     venue: "IEEE Transactions on Control of Network Systems 2019",
-	highlight: 'Study on the controllability and observability of sampled-data Boolean control networks.',
-    links: [
-      { label: "PDF", url: "https://ieeexplore.ieee.org/abstract/document/8561222" },
-      { label: "BibTex", url: "./resources/2019_TCNS_zhuqunxi/bib.txt" }
-    ],
-    image: "./resources/2019_TCNS_zhuqunxi/image.png"
-  },
-  {
+    highlight: 'Study on the controllability and observability of sampled-data Boolean control networks.',
+    pdf: "https://ieeexplore.ieee.org/abstract/document/8561222",
+  }),
+  makePub({
     id: "2019_TAC_zhuqunxi",
     title: "Further results on the controllability of Boolean control networks",
     authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
-	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
+    correspondingAuthors: ["Yang Liu"],
     venue: "IEEE Transactions on Automatic Control 2019",
-	highlight: 'An improved graphic method for controllability analysis of Boolean control networks.',
-    links: [
-      { label: "PDF", url: "https://ieeexplore.ieee.org/document/8350282" },
-      { label: "BibTex", url: "./resources/2019_TAC_zhuqunxi/bib.txt" }
-    ],
-    image: "./resources/2019_TAC_zhuqunxi/image.png"
-  },
-  {
+    highlight: 'An improved graphic method for controllability analysis of Boolean control networks.',
+    pdf: "https://ieeexplore.ieee.org/document/8350282",
+  }),
+  makePub({
     id: "2018_SICON_zhuqunxi",
     title: "On the optimal control of Boolean control networks",
     authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
-	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
+    correspondingAuthors: ["Yang Liu"],
     venue: "SIAM Journal on Control and Optimization 2018",
-	highlight: 'An optimal input-state transfer graph introduced for BCNs with cost in finite/infinite time horizon.',
-    links: [
-      { label: "PDF", url: "https://epubs.siam.org/doi/abs/10.1137/16M1070281" },
-      { label: "BibTex", url: "./resources/2018_SICON_zhuqunxi/bib.txt" }
-    ],
-    image: "./resources/2018_SICON_zhuqunxi/image.png"
-  },
-  {
+    highlight: 'An optimal input-state transfer graph introduced for BCNs with cost in finite/infinite time horizon.',
+    pdf: "https://epubs.siam.org/doi/abs/10.1137/16M1070281",
+  }),
+  makePub({
     id: "2018_SCIS_zhuqunxi",
     title: "Observability of Boolean control networks",
     authors: "Qunxi Zhu, Yang Liu, Jianquan Lu, Jinde Cao",
-	correspondingAuthors: ["Yang Liu"], // 添加通讯作者列表
+    correspondingAuthors: ["Yang Liu"],
     venue: "Science China Information Sciences 2018",
-	highlight: 'Necessary and sufficient conditions for the observability of BCNs.',
-    links: [
-      { label: "PDF", url: "http://engine.scichina.com/publisher/scp/journal/SCIS/doi/10.1007/s11432-017-9135-4" },
-      { label: "BibTex", url: "./resources/2018_SCIS_zhuqunxi/bib.txt" }
-    ],
-    image: "./resources/2018_SCIS_zhuqunxi/image.png"
-  }
-  // ... 更多文章可以按照相同格式添加
+    highlight: 'Necessary and sufficient conditions for the observability of BCNs.',
+    pdf: "http://engine.scichina.com/publisher/scp/journal/SCIS/doi/10.1007/s11432-017-9135-4",
+  }),
+  // ... 更多文章按相同格式添加,只需写 id / title / authors / correspondingAuthors / venue / highlight / pdf
+  // 路径会根据 id 自动拼出来。如有 poster 传 'png' 或 'pdf';有额外外链用 extraLinks 数组。
 ];
 
 // 渲染文章信息到页面
@@ -682,4 +604,3 @@ function renderAwards_and_Honors() {
 document.addEventListener('DOMContentLoaded', () => {
   renderAwards_and_Honors();
 });
-
