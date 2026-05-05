@@ -49,6 +49,7 @@ const VENUE_HONOR_KEYWORDS = [
   "Editor's Pick",
   'Featured article',
   'Spotlight',
+  'Top 25'
 ];
 
 // 工具函数：转义正则元字符
@@ -184,8 +185,8 @@ const publications = [
     title: "Higher-order Granger reservoir computing: Simultaneously achieving scalable complex structures inference and accurate dynamics prediction",
     authors: "Xin Li, Qunxi Zhu, Chengli Zhao, Xiaojun Duan, Bolin Zhao, Xue Zhang, Huanfei Ma, Jie Sun, Wei Lin",
     correspondingAuthors: ["Qunxi Zhu", "Chengli Zhao", "Wei Lin"],
-    venue: "Nature Communications 2024 (Featured article)",
-    highlight: 'Higher-order Granger reservoir computing for inferring higher-order structures and predicting dynamics.',
+    venue: "Nature Communications 2024 (Featured article & Annual Top 25 physics article)",
+    highlight: 'Higher-order Granger reservoir computing for inferring higher-order structures and predicting dynamics. Featured article in “AI and machine learning” and “Applied physics and mathematics” & Top 25 physics article of the year',
     pdf: "https://www.nature.com/articles/s41467-024-46852-1",
     extraLinks: [
       { label: "techxplore", url: "https://techxplore.com/news/2024-03-lightweight-machine-method-scalable-inference.html" },
