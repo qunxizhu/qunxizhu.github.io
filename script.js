@@ -30,6 +30,19 @@ const publications = [
     image: "./resources/2024_Arxiv_zhuqunxi/image.png"
   },
   {
+    id: "2026_ICML_luwanfeng",
+    title: "Interpretable Functional Koopman Learning with Non-Markovian Closure for Spatiotemporal Systems",
+    authors: "Wanfeng Lu, He Ma, Wei Lin, Qunxi Zhu",
+	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
+    venue: "ICML 2026",
+	highlight: 'A functional Koopman learning framework with non-Markovian memory correction for modeling spatiotemporal process.',
+    links: [
+      { label: "PDF", url: "https://openreview.net/forum?id=lquDiBCgNJ" },
+      { label: "BibTex", url: "./resources/2026_ICML_luwanfeng/bib.txt" }
+    ],
+    image: "./resources/2025_ICML_zhangjingdong/image.png"
+  },
+  {
     id: "2026_DCDS-Intelligence_zhangjiaxuan",
     title: "Extended Neural Delay Differential Equations",
     authors: "Jiaxuan Zhang, Qunxi Zhu, Wei Lin",

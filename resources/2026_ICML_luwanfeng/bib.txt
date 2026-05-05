@@ -1,0 +1,8 @@
+@inproceedings{
+zhao2026delay,
+title={{Interpretable Functional Koopman Learning with Non-Markovian Closure for Spatiotemporal Systems}},
+author={Wanfeng Lu and He Ma and Wei Lin and Qunxi Zhu},
+booktitle={The Forty-Third International Conference on Machine Learning},
+year={2026},
+url={https://openreview.net/forum?id=lquDiBCgNJ}
+}
