@@ -1,452 +1,365 @@
-/* ============================================================
-   全局样式重置
-   ============================================================ */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, tt, var,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-  border: 0 none;
-  font-family: inherit;
-  font-size: 100%;
-  font-style: inherit;
-  font-weight: inherit;
-  margin: 0;
-  outline: none;
-  padding: 0;
-  vertical-align: baseline;
+/* 全局样式重置 */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  border: 0pt none; /* 移除所有元素的边框 */
+  font-family: inherit; /* 继承父元素的字体 */
+  font-size: 100%; /* 设置字体大小为默认值 */
+  font-style: inherit; /* 继承父元素的字体样式 */
+  font-weight: inherit; /* 继承父元素的字体粗细 */
+  margin: 0pt; /* 移除所有元素的外边距 */
+  outline-color: invert; /* 反转轮廓颜色 */
+  outline-style: none; /* 移除轮廓样式 */
+  outline-width: 0pt; /* 移除轮廓宽度 */
+  padding: 0pt; /* 移除所有元素的内边距 */
+  vertical-align: baseline; /* 设置元素的垂直对齐方式为基线对齐 */
 }
 
-/* ============================================================
-   全局基础
-   ============================================================ */
-:root {
-  --color-primary: rgb(46, 117, 182);      /* 主蓝（姓名色）*/
-  --color-primary-dark: rgb(30, 90, 150);  /* 深蓝（badge）*/
-  --color-link: #1772d0;
-  --color-link-hover: #f09228;
-  --color-text: #222;
-  --color-text-soft: #555;
-  --color-bg: #eee;
-  --color-card: #fff;
-  --color-border: #ddd;
-  --color-highlight-bg: #f6f8fb;
-  --color-highlight-text: #444;
-  --radius: 6px;
-  --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.08);
-}
-
+/* 链接样式 */
 a {
-  color: var(--color-link);
-  text-decoration: none;
-  transition: color 0.15s ease;
+  color: #1772d0; /* 设置链接文字颜色 */
+  text-decoration: none; /* 去除链接下划线 */
 }
 
+/* 链接聚焦和悬停样式 */
 a:focus,
 a:hover {
-  color: var(--color-link-hover);
-  text-decoration: none;
+  color: #f09228; /* 改变链接文字颜色 */
+  text-decoration: none; /* 去除链接下划线 */
 }
 
-a.paper { font-weight: bold; font-size: 12pt; }
-b.paper { font-weight: bold; font-size: 12pt; }
+/* 特定样式的链接 */
+a.paper {
+  font-weight: bold; /* 设置字体加粗 */
+  font-size: 12pt; /* 设置字体大小 */
+}
 
-/* 现代系统字体栈：中英混排自动选用苹方 / 微软雅黑 */
+/* 特定样式的加粗文本 */
+b.paper {
+  font-weight: bold; /* 设置字体加粗 */
+  font-size: 12pt; /* 设置字体大小 */
+}
+
+/* 文档主体样式 */
 body {
-  position: relative;
-  margin: 3em auto 2em auto;
-  max-width: 900px;
-  width: 92%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-               "PingFang SC", "Microsoft YaHei",
-               "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--color-text);
-  background: var(--color-bg);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  position: relative; /* 设置定位方式 */
+  margin: 3em auto 2em auto; /* 设置外边距 */
+  width: 800px; /* 设置宽度 */
+  font-family: Verdana, Helvetica, sans-serif; /* 设置字体族 */
+  font-size: 14px; /* 设置字体大小 */
+  background: #eee; /* 设置背景颜色 */
 }
 
+/* 二级标题样式 */
 h2 {
-  font-size: 15pt;
-  font-weight: 700;
-  margin-bottom: 0.4em;
+  font-family: Verdana, Helvetica, sans-serif; /* 设置字体族 */
+  font-size: 15pt; /* 设置字体大小 */
+  font-weight: 700; /* 设置字体粗细 */
 }
 
+/* 三级标题样式 */
 h3 {
-  font-size: 16px;
-  font-weight: 700;
+  font-family: Verdana, Helvetica, sans-serif; /* 设置字体族 */
+  font-size: 16px; /* 设置字体大小 */
+  font-weight: 700; /* 设置字体粗细 */
 }
 
+/* 加粗文本样式 */
 strong {
-  font-size: 13px;
-  font-weight: bold;
+  font-family: Verdana, Helvetica, sans-serif; /* 设置字体族 */
+  font-size: 13px; /* 设置字体大小 */
+  font-weight: bold; /* 设置字体加粗 */
 }
 
-ul { list-style: circle; }
-img { border: none; }
+/* 无序列表样式 */
+ul {
+  list-style: circle; /* 设置列表项标记为圆形 */
+}
 
+/* 图片样式 */
+img {
+  border: none; /* 移除图片边框 */
+}
+
+/* 列表项样式 */
 li {
-  padding-bottom: 0.5em;
-  margin-left: 1.4em;
+  padding-bottom: 0.5em; /* 设置底部内边距 */
+  margin-left: 1.4em; /* 设置左侧外边距 */
 }
 
-em, i { font-style: italic; }
+/* 警告文本样式 */
+alert {
+  font-family: Verdana, Helvetica, sans-serif; /* 设置字体族 */
+  font-size: 13px; /* 设置字体大小 */
+  font-weight: bold; /* 设置字体加粗 */
+  color: #FF0000; /* 设置字体颜色 */
+}
 
+/* 斜体文本样式 */
+em,
+i {
+  font-style: italic; /* 设置字体样式为斜体 */
+}
+
+/* 区域样式 */
 .section {
-  clear: both;
-  margin-bottom: 1.5em;
-  background: var(--color-bg);
+  clear: both; /* 清除浮动 */
+  margin-bottom: 1.5em; /* 设置底部外边距 */
+  background: #eee; /* 设置背景颜色 */
 }
 
-.spanner { clear: both; }
+/* 清除浮动 */
+.spanner {
+  clear: both; /* 清除浮动 */
+}
 
-/* ============================================================
-   头部 (Header)
-   ============================================================ */
+/* 论文样式 */
+.paper {
+  /*flex: 1 1 75%; /* 允许每个.paper元素占总宽度的25%，且在必要时可以缩放 */
+  display: flex; /* 我们可以通过将包含这些内容的父元素设置为flex容器，并使用适当的flex属性来实现垂直居中。 */
+  align-items: center; /* 垂直居中对齐 */
+  clear: both; /* 清除浮动 */
+  margin-top: 0.5em; /* 设置顶部外边距 */
+  margin-bottom: 1em; /* 设置底部外边距 */
+  border: 1px solid #ddd; /* 设置边框样式 */
+  background: #fff; /* 设置背景颜色 */
+  padding: 1em; /* 设置内边距 */
+  overflow: hidden; /* 确保浮动元素包含在内 */
+}
+
+
+/* 论文内部元素样式 */
+.paper div {
+  padding-left: 0; /* 移除左侧内边距 */
+}
+
+
+/* 论文文本部分 */
+.paper-text {
+  flex-grow: 0; /* 允许文本部分扩展 */
+  min-width: 0; /* 防止文本部分过宽 */
+  text-align: justify; /* 设置文本两端对齐 */
+}
+
+/* 设置作者列表和文章标题之间的间距 */
+.paper strong {
+  display: block; /* 设置为块级元素 */
+  margin-bottom: 0.0em; /* 设置底部外边距 */
+}
+
+/* 描述文本样式 */
+span.blurb {
+  font-style: italic; /* 设置字体样式为斜体 */
+  display: block; /* 设置为块级元素 */
+  margin-top: 0.75em; /* 设置顶部外边距 */
+  margin-bottom: 0.5em; /* 设置底部外边距 */
+}
+
+/* 代码块样式 */
+pre,
+code {
+  font-family: 'Lucida Console', 'Andale Mono', 'Courier', monospaced; /* 设置字体族 */
+  margin: 1em 0; /* 设置上下外边距 */
+  padding: 0; /* 移除内边距 */
+}
+
+/* 论文中的代码块样式 */
+.paper pre {
+  font-size: 0.9em; /* 设置字体大小 */
+}
+
+/* 页眉样式 */
 .header {
-  margin-bottom: 1em;
-  border: 1px solid var(--color-border);
-  background-color: var(--color-card);
-  padding: 1.2em;
-  min-height: 150px;
+  margin-bottom: 1em; /* 设置底部外边距 */
+  border: 1px solid #ddd; /* 设置边框样式 */
+  background-color: #fff; /* 设置背景颜色 */
+  padding: 1em; /* 设置内边距 */
+  height: 150px; /* 设置高度 */
 }
 
+/* 页眉内容样式 */
 .header-content {
-  display: flex;
-  align-items: center;
-  gap: 1.5em;
-  width: 100%;
+  margin: 0px auto; /* 设置上下外边距为0，左右自动 */
+  width: 100%; /* 设置宽度 */
 }
 
+/* 个人简介图片样式 */
 .profile-img {
-  height: 150px;
-  width: auto;
-  flex-shrink: 0;
-  border-radius: 4px;
+  float: left; /* 设置浮动 */
+  padding-left: 0em; /* 设置左侧内边距 */
+  height: 150px; /* 设置高度 */
+  margin-right: 1em;
 }
 
+/* 信息区域样式 */
+/*.info {
+/*  padding-left: 10em; /* 设置左侧内边距 */
+/*  vertical-align: top; /* 设置垂直对齐方式为顶部对齐 */
+/*  height: 120px; /* 设置高度 */
+/*} */
+
+/* 信息区域样式 */
 .info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  flex: 1;
-  min-width: 0;
+  justify-content: center; /* 垂直居中 */
+  height: 150px;
 }
 
-.info p {
-  margin: 0;
-}
 
-.info > p > span {
-  display: block;
-  margin-bottom: 2px;
-}
-
+/* 名称样式 */
 .name {
-  line-height: 150%;
-  font-size: 20pt;
-  color: var(--color-primary);
-  font-weight: bold;
-  margin-bottom: 4px !important;
+  line-height: 150%; /* 设置行高 */
+  font-size: 20pt; /* 设置字体大小 */
+  color: rgb(46, 117, 182); /* blue设置文本颜色为蓝色 */
+  font-weight: bold; /* 设置文本为加粗 */
 }
 
-/* ============================================================
-   职位标签 —— 统一蓝色系、不同明度
-   ============================================================ */
-.role-tag {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 2px 8px;
-  border-radius: 4px;
-  margin-right: 4px;
-  line-height: 1.5;
+
+
+.author-corresponding {
+  font-weight: normal;
 }
 
-.role-tag-primary {
-  background-color: var(--color-primary);
-  color: #fff;
-}
-
-.role-tag-secondary {
-  background-color: #e3eef9;
-  color: var(--color-primary-dark);
-  border: 1px solid #c7daee;
-}
-
-/* 招生提示 callout —— 左侧粗竖线，比纯色块更现代 */
-.callout {
-  display: block;
-  background-color: #fff5f7;
-  border-left: 4px solid #e85a7a;
-  padding: 12px 16px;
-  margin: 8px 0;
-  border-radius: 0 var(--radius) var(--radius) 0;
-  color: #5a2a36;
-  font-weight: 500;
-  line-height: 1.7;
-}
-
-/* ============================================================
-   论文卡片
-   ============================================================ */
-.paper {
-  display: flex;
-  align-items: center;
-  clear: both;
-  margin-top: 0.5em;
-  margin-bottom: 1em;
-  border: 1px solid var(--color-border);
-  background: var(--color-card);
-  padding: 1em;
-  overflow: hidden;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-
-.paper:hover {
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-2px);
-}
-
-.paper div {
-  padding-left: 0;
-}
-
-.paper-text {
-  flex: 1;
-  min-width: 0;
-  text-align: justify;
-}
-
-.paper strong {
-  display: block;
-  font-size: 14px;
-  margin-bottom: 4px;
-  color: var(--color-text);
-}
-
-span.blurb {
-  font-style: italic;
-  display: block;
-  margin-top: 0.75em;
-  margin-bottom: 0.5em;
-}
-
-pre, code {
-  font-family: 'Lucida Console', 'Andale Mono', 'Courier', monospace;
-  margin: 1em 0;
-  padding: 0;
-}
-
-.paper pre { font-size: 0.9em; }
-
-/* 论文图片容器 */
-.image-container {
-  text-align: center;
-  margin: 0 1.2em 0 0;
-  flex: 0 0 26%;
-  max-width: 26%;
-}
-
-img.paper {
-  width: 100%;
-  height: auto;
-  border: none;
-  padding: 0;
-  border-radius: 4px;
-  display: block;
-}
-
-/* Badge —— 与主色调协调的深蓝 */
-.badge {
-  background-color: var(--color-primary-dark);
-  color: white;
-  font-weight: bold;
-  font-size: 12px;
-  padding: 4px 8px;
-  border-radius: 4px;
-  display: inline-block;
-  margin-bottom: 6px;
-  letter-spacing: 0.3px;
-}
-
-/* 通讯作者星号 */
-.author-corresponding { font-weight: normal; }
+/* 对通讯作者加星号 */
 .author-corresponding::after {
-  content: "*";
-  color: var(--color-primary);
+  content: "*"; /* 添加星号 */
+}
+
+/* 对qunxi zhu加粗 */
+.author-qunxi-zhu {
   font-weight: bold;
 }
 
-/* 强调本人 */
-.author-qunxi-zhu { font-weight: bold; }
 
-/* ============================================================
-   Highlight —— 左侧蓝色竖线 + 浅灰背景，取代刺眼红字
-   ============================================================ */
 .highlight {
-  color: var(--color-highlight-text);
-  font-weight: 500;
-  font-style: italic;
-  background-color: var(--color-highlight-bg);
-  border-left: 3px solid var(--color-primary);
-  padding: 6px 10px;
-  margin-top: 8px;
-  border-radius: 0 4px 4px 0;
-  font-size: 13px;
-  line-height: 1.5;
+  color: red;
+  font-weight: bold;
 }
 
-/* ============================================================
-   论文链接 —— 与原 [ PDF ] 风格兼容，仅优化颜色和悬停效果
-   ============================================================ */
-.paper-text a {
-  font-weight: 600;
-  color: var(--color-primary-dark);
-  transition: color 0.15s ease;
+
+/* 图片样式，去除边框并设置间距 */
+img.paper {
+  /*margin-bottom: 0.5em; /* 设置底部外边距 */
+  /*margin-right: 1em; /* 设置右侧外边距 */
+  /*margin: 0 1em 0 0; /* 图片上右下左间距 */
+  /*float: left; /* 设置浮动 */
+  /*width: 200px; /* 设置宽度 */
+  /*flex: 0 0 25%; /* 设置图片部分占25%宽度，不允许缩小 */
+  width: 100%; /* 图片宽度自适应容器宽度 */
+  border: none; /* 移除边框 */
+  padding: 0; /* 移除内边距 */
 }
 
-.paper-text a:hover {
-  color: var(--color-link-hover);
-  text-decoration: underline;
+.badge {
+    background-color: purple; /* 设置背景色为紫色 */
+    color: white; /* 设置文字颜色为白色 */
+	font-weight: bold;
+    padding: 3px 0px; /* 设置内边距 */
+	justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+	/*text-align: center; /* 文本水平居中 */
+	/*line-height: 20px; /* 设置行高，这应根据您的具体设计调整 */
+	/*height: 20px; /* 设置高度，确保与行高一致以实现垂直居中 */
+    border-radius: 5px; /* 设置边角圆滑 */
+	display: flex; /* 使用flex布局 */
+    /*display: inline-block; /*block; /* 使标签独占一行 */ /* inline-block; 保证标签表现为行内块 */ /*margin: 2px;  添加外边距 */
 }
 
-/* ============================================================
-   兼容旧的彩色 box（DCDS 区块还在使用）
-   ============================================================ */
+.image-container {
+  text-align: center;  /* 文字和图片居中对齐 */
+  margin-bottom: 5px; /* 图片下方留出间距 */
+  margin: 0 1em 0 0; /* 图片上右下左间距 */
+  flex: 0 0 30%; /* 设置图片部分占25%宽度，不允许缩小 */
+}
+
+.light-blue-box {
+    background-color: lightblue; /* 设置背景颜色为淡蓝色 */
+    border: 2px solid lightblue; /* 设置边框为淡蓝色 */
+    color: black; /* 设置文字颜色为黑色 */
+	font-weight: bold;
+    padding: 2px; /* 设置内边距 */
+    display: inline-block; /* 使元素包裹文字 */
+	border-radius: 5px; /* 设置边角圆滑 */
+}
 .light-pink-box {
-  display: inline-block;
-  background-color: #fff5f7;
-  border-left: 4px solid #e85a7a;
-  border-radius: 0 var(--radius) var(--radius) 0;
-  color: #5a2a36;
-  font-weight: 500;
-  padding: 10px 14px;
-  line-height: 1.7;
+    background-color: lightpink; /* lightpink 设置背景颜色为淡蓝色 */
+    border: 2px solid lightpink; /* 设置边框为淡蓝色 */
+    color: black; /* 设置文字颜色为黑色 */
+	font-weight: bold;
+    padding: 2px; /* 设置内边距 */
+    display: inline-block; /* 使元素包裹文字 */
+	border-radius: 5px; /* 设置边角圆滑 */
 }
-
-.light-red-box,
-.light-green-box,
-.light-blue-box {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 2px 8px;
-  border-radius: 4px;
-  line-height: 1.5;
+.light-green-box {
+    background-color: lightgreen; /* 设置背景颜色为淡蓝色 */
+    border: 2px solid lightgreen; /* 设置边框为淡蓝色 */
+    color: black; /* 设置文字颜色为黑色 */
+	font-weight: bold;
+    padding: 2px; /* 设置内边距 */
+    display: inline-block; /* 使元素包裹文字 */
+	border-radius: 5px; /* 设置边角圆滑 */
 }
-
 .light-red-box {
-  background-color: var(--color-primary);
-  color: #fff;
-  border: 1px solid var(--color-primary);
-}
-
-.light-green-box,
-.light-blue-box {
-  background-color: #e3eef9;
-  color: var(--color-primary-dark);
-  border: 1px solid #c7daee;
-}
-
-/* ============================================================
-   响应式断点
-   ============================================================ */
-
-/* 平板及以下：减小卡片内边距 */
-@media (max-width: 768px) {
-  body {
-    margin: 1.5em auto;
-    width: 94%;
-    font-size: 14px;
-  }
-
-  .header,
-  .paper {
-    padding: 0.9em;
-  }
-
-  .image-container {
-    flex: 0 0 30%;
-    max-width: 30%;
-  }
-}
-
-/* 手机：header 和论文卡片改为竖直堆叠 */
-@media (max-width: 600px) {
-  body {
-    margin: 1em auto;
-  }
-
-  .header {
-    min-height: auto;
-    padding: 1.2em;
-  }
-
-  .header-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1em;
-  }
-
-  .profile-img {
-    height: 130px;
-  }
-
-  .info {
-    align-items: center;
-    text-align: center;
-    min-height: auto;
-  }
-
-  .info > p > span {
-    text-align: center;
-  }
-
-  .name {
-    font-size: 18pt;
-  }
-
-  .paper {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .image-container {
-    flex: 0 0 auto;
-    max-width: 100%;
-    width: 100%;
-    margin: 0 0 12px 0;
-  }
-
-  img.paper {
-    max-width: 240px;
-    margin: 0 auto;
-  }
-
-  .paper-text {
-    text-align: left;
-  }
-
-  h2 {
-    font-size: 14pt;
-  }
-}
-
-/* 极小屏（窄手机） */
-@media (max-width: 380px) {
-  .name {
-    font-size: 16pt;
-  }
-
-  .role-tag {
-    font-size: 11px;
-    padding: 2px 6px;
-  }
+    background-color: lightcoral; /* 设置背景颜色为淡蓝色 */
+    border: 2px solid lightcoral; /* 设置边框为淡蓝色 */
+    color: black; /* 设置文字颜色为黑色 */
+	font-weight: bold;
+    padding: 2px; /* 设置内边距 */
+    display: inline-block; /* 使元素包裹文字 */
+	border-radius: 5px; /* 设置边角圆滑 */
 }
