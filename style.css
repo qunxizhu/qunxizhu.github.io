@@ -321,18 +321,14 @@ img.paper {
 }
 
 .badge {
-    background-color: purple; /* 设置背景色为紫色 */
-    color: white; /* 设置文字颜色为白色 */
-	font-weight: bold;
-    padding: 3px 0px; /* 设置内边距 */
-	justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-	/*text-align: center; /* 文本水平居中 */
-	/*line-height: 20px; /* 设置行高，这应根据您的具体设计调整 */
-	/*height: 20px; /* 设置高度，确保与行高一致以实现垂直居中 */
-    border-radius: 5px; /* 设置边角圆滑 */
-	display: flex; /* 使用flex布局 */
-    /*display: inline-block; /*block; /* 使标签独占一行 */ /* inline-block; 保证标签表现为行内块 */ /*margin: 2px;  添加外边距 */
+    background-color: purple;
+    color: white;
+    font-weight: bold;
+    padding: 4px 10px;          /* 加横向 padding,文字不贴边 */
+    border-radius: 5px;
+    display: block;             /* 不再用 flex,避免 span 被拆成独立 flex item */
+    text-align: center;
+    line-height: 1.4;
 }
 
 .image-container {

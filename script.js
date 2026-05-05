@@ -185,7 +185,7 @@ const publications = [
     authors: "Xin Li, Qunxi Zhu, Chengli Zhao, Xiaojun Duan, Bolin Zhao, Xue Zhang, Huanfei Ma, Jie Sun, Wei Lin",
     correspondingAuthors: ["Qunxi Zhu", "Chengli Zhao", "Wei Lin"],
     venue: "Nature Communications 2024 (Featured article)",
-    highlight: 'Higher-order Granger reservoir computing for inferring complex network structures and predicting dynamics.',
+    highlight: 'Higher-order Granger reservoir computing for inferring higher-order structures and predicting dynamics.',
     pdf: "https://www.nature.com/articles/s41467-024-46852-1",
     extraLinks: [
       { label: "techxplore", url: "https://techxplore.com/news/2024-03-lightweight-machine-method-scalable-inference.html" },
