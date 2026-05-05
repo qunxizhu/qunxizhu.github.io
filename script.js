@@ -48,7 +48,7 @@ const publications = [
     authors: "Wanfeng Lu, He Ma, Wei Lin, Qunxi Zhu",
 	correspondingAuthors: ["Qunxi Zhu", "Wei Lin"], // 添加通讯作者列表
     venue: "ICML 2026 (Spotlight)",
-	highlight: 'A functional Koopman learning framework with non-Markovian memory correction for modeling spatiotemporal process.',
+	highlight: 'A functional Koopman learning framework with non-Markovian memory correction for modeling spatiotemporal dynamics.',
     links: [
       { label: "PDF", url: "https://openreview.net/forum?id=lquDiBCgNJ" },
       { label: "BibTex", url: "./resources/2026_ICML_luwanfeng/bib.txt" }
